@@ -1,0 +1,1768 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
+  <title>Youth & Families on a Mission — YAFOAM | Empowering Youth, Strengthening Families</title>
+  <meta name="description" content="YAFOAM empowers youth and strengthens families through culturally responsive mentorship, comprehensive programs, newcomer settlement support, and deep community engagement." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕊️</text></svg>" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <script>
+    // Configure Tailwind with custom colors and fonts for the luxury minimalism / glassmorphism theme
+    tailwind.config = {
+      darkMode: 'class', // Enable dark mode toggle
+      theme: {
+        extend: {
+          colors: { 
+            'midnight': '#3f5a91', // Main Primary Color (Navy/Midnight Blue)
+            'peach': '#F6C9B0',    // Secondary Accent Color (Light Peach)
+            'cream': '#FFF8F0',    // Background/Highlight (Light Cream)
+            'softgray': 'rgba(240, 244, 248, 0.7)', // For Glassmorphism backgrounds
+            'darkmode-bg': '#070E1A',
+            'darkmode-card': 'rgba(12, 24, 48, 0.6)'
+          },
+          fontFamily: { 
+            display:['Playfair Display','serif'], // For Headings
+            sans:['Montserrat','system-ui','sans-serif'] // For Body Text
+          },
+          maxWidth: { '8xl': '1400px', '9xl': '1600px' },
+          boxShadow: { // Custom, soft shadows for the aesthetic
+            'lux': '0 15px 30px -5px rgba(63, 90, 145, 0.1), 0 5px 15px -3px rgba(63, 90, 145, 0.05)',
+            'lux-dark': '0 15px 30px -5px rgba(0, 0, 0, 0.2), 0 5px 15px -3px rgba(0, 0, 0, 0.1)',
+            'card-hover': '0 30px 60px -12px rgba(63, 90, 145, 0.25), 0 18px 36px -18px rgba(63, 90, 145, 0.3)'
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom CSS Variables */
+    :root{
+      --midnight:#3f5a91;
+      --peach:#F6C9B0;
+      --cream:#FFF8F0;
+      --navy-text:#1A202C; /* Darker Navy for better contrast */
+    }
+
+    /* Base Styles */
+    html,body{height:100%; scroll-behavior: smooth;}
+    body{
+      font-family:Montserrat,system-ui;
+      background: linear-gradient(180deg, var(--cream) 0%, var(--peach) 100%);
+      color: var(--navy-text);
+      -webkit-font-smoothing:antialiased;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    /* Dark Mode Overrides */
+    .dark body {
+      background: linear-gradient(180deg, var(--darkmode-bg) 0%, #031021 100%);
+      color: #e6eef6;
+    }
+    .dark .glass-card, .dark .stat-card {
+      background: var(--darkmode-card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: none;
+    }
+    .dark .hero-card {
+      background: rgba(12, 24, 48, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* Layout */
+    .site-max{max-width:1600px; margin:0 auto; padding:0 24px;}
+    
+    /* Header/Nav */
+    header{
+      position:sticky;
+      top:0;
+      z-index:80;
+      background:rgba(255,255,255,0.88);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(63, 90, 145, 0.05);
+      transition: background-color 0.4s ease;
+    }
+    .dark header {
+      background:rgba(12, 24, 48, 0.85);
+      border-bottom:1px solid rgba(255, 255, 255, 0.08);
+    }
+    .logo-mark{
+      width:56px;
+      height:56px;
+      border-radius:12px;
+      background:linear-gradient(135deg, var(--midnight), #5A7EB9);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:800;
+      color:var(--cream);
+      font-family:'Playfair Display',serif;
+    }
+
+    /* Navigation Links */
+    nav .link{
+      padding:10px 14px;
+      border-radius:10px;
+      display:inline-block;
+      transition: all .2s ease-out;
+      font-weight: 600;
+      color: var(--midnight);
+    }
+    .dark nav .link { color: #E6EEF6; }
+    nav .link:hover, nav .link:focus{
+      background:rgba(63, 90, 145, 0.1);
+      transform:translateY(-1px);
+    }
+    .dark nav .link:hover, .dark nav .link:focus {
+      background:rgba(255, 255, 255, 0.1);
+    }
+
+    /* Mega Menu Panel - Glassmorphism Effect */
+    .mega-panel{
+      position:absolute;
+      left:0;
+      right:0;
+      top:100%;
+      transform:translateY(20px);
+      opacity:0;
+      pointer-events:none;
+      transition:all .35s cubic-bezier(.2,.9,.3,1);
+      background:rgba(255,255,255,0.92);
+      backdrop-filter:blur(12px);
+      padding:30px 40px;
+      border-radius:16px;
+      box-shadow: var(--lux);
+      display:flex;
+      gap:30px;
+    }
+    .dark .mega-panel {
+      background:rgba(12, 24, 48, 0.9);
+      box-shadow: var(--lux-dark);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mega-panel.open{
+      transform:translateY(8px);
+      opacity:1;
+      pointer-events:auto;
+    }
+    .mega-col{flex:1; min-width: 160px;}
+    .mega-col a {
+      display: block;
+      padding: 6px 0;
+      font-size: 0.95rem;
+      color: var(--navy-text);
+      transition: color 0.2s ease;
+    }
+    .dark .mega-col a { color: #b8c6e2; }
+    .mega-col a:hover {
+      color: var(--midnight);
+      transform: translateX(4px);
+    }
+    .dark .mega-col a:hover { color: var(--peach); }
+    .mega-col strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--midnight);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .dark .mega-col strong { color: var(--peach); }
+
+    /* Hero Section */
+    .hero{position:relative;overflow:hidden;padding:50px 0;min-height:70vh;display:flex;align-items:center;}
+    .hero .bg-clip{position:absolute;inset:0;z-index:0;overflow:hidden;}
+    .hero video{width:110%;height:110%;object-fit:cover;filter:blur(5px) brightness(0.9) contrast(0.98);transform:scale(1.04);position:relative;left:50%;top:50%;translate:-50% -50%;}
+    .hero .overlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(63, 90, 145, 0.1), rgba(63, 90, 145, 0.4));z-index:1;}
+    .dark .hero .overlay { background:linear-gradient(180deg, rgba(12, 24, 48, 0.2), rgba(12, 24, 48, 0.6));}
+    
+    .hero-card{
+      position:relative;
+      z-index:6;
+      background:rgba(255,255,255,0.78);
+      border-radius:18px;
+      padding:30px;
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,0.8);
+      box-shadow: var(--lux);
+    }
+    .dark .hero-card {
+      background:rgba(12, 24, 48, 0.7);
+      border:1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    /* Content Styling */
+    .glass-card {
+      background:rgba(255,255,255,0.85);
+      backdrop-filter:blur(8px);
+      border-radius:14px;
+      padding:24px;
+      box-shadow: 0 10px 20px rgba(63, 90, 145, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      transition: background-color 0.4s ease;
+    }
+    .dark .glass-card {
+      background:rgba(12, 24, 48, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Read More Toggle */
+    .excerpt{max-height:8rem;overflow:hidden;position:relative;transition:max-height 0.5s ease;}
+    .excerpt.expanded{max-height:none;}
+    .gradient-fade{
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      height:4rem;
+      background:linear-gradient(180deg,transparent,var(--cream));
+      display:flex;
+      align-items:flex-end;
+      justify-content:center;
+      transition: background-color 0.4s ease;
+    }
+    .dark .gradient-fade { background:linear-gradient(180deg,transparent,var(--darkmode-bg)); }
+    .read-more-btn{
+      background:rgba(255,255,255,0.95);
+      padding:8px 14px;
+      border-radius:10px;
+      border:1px solid rgba(0,0,0,0.08);
+      font-weight: 600;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      transition: all 0.2s ease-out;
+    }
+    .dark .read-more-btn {
+      background: var(--midnight);
+      color: var(--cream);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    /* 3D Hover Card */
+    .card-3d-hover {
+      perspective: 1000px;
+    }
+    .card-inner {
+      transform-style: preserve-3d;
+      transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transform: rotateY(0deg) scale(1);
+      box-shadow: var(--lux);
+    }
+    .card-3d-hover:hover .card-inner {
+      transform: rotateY(3deg) scale(1.02);
+      box-shadow: var(--card-hover);
+    }
+    .dark .card-3d-hover:hover .card-inner {
+      box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.5), 0 18px 36px -18px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Animated Stat Cards */
+    .stat-card{
+      background:linear-gradient(180deg,rgba(255,255,255,0.9),rgba(255,255,255,0.7));
+      padding:18px;
+      border-radius:14px;
+      box-shadow: 0 8px 16px rgba(63, 90, 145, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      transition: background-color 0.4s ease;
+    }
+
+    /* Testimonial Slider */
+    .testimonial-slide {
+      transition: opacity 0.6s ease;
+    }
+    .testimonial-slide:not(.active) {
+      display: none;
+    }
+
+    /* Modals/Lightbox */
+    .modal{
+      position:fixed;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(6,12,24,0.75);
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .25s ease;
+      z-index:120;
+    }
+    .modal.open{opacity:1;pointer-events:auto;}
+    .modal-card{
+      background:var(--cream);
+      border-radius:16px;
+      overflow:hidden;
+      width:min(1100px,95%);
+      max-height:90vh;
+      overflow-y:auto;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      transform: scale(0.95);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .dark .modal-card { background: var(--darkmode-bg); }
+    .modal.open .modal-card {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    /* Footer - F4 Mega Footer */
+    footer{
+      background:linear-gradient(180deg, #071224 0%, #031021 100%);
+      color:#e6eef6;
+      padding:60px 0 30px 0;
+      margin-top:50px;
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns:repeat(6,1fr);
+      gap:24px;
+      max-width:1600px;
+      margin:0 auto;
+      padding:0 24px;
+    }
+    .footer-grid h4{
+      color:var(--peach);
+      font-weight:700;
+      margin-bottom:12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .footer-grid a{
+      display:block;
+      color:rgba(230,238,246,0.9);
+      text-decoration:none;
+      margin:8px 0;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+    .footer-grid a:hover{
+      color:var(--peach);
+      transform: translateX(4px);
+    }
+    .footer-bottom{
+      border-top:1px solid rgba(255,255,255,0.08);
+      margin-top:30px;
+      padding-top:20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      max-width:1600px;
+      margin:30px auto 0;
+      padding:0 24px;
+    }
+    .social-icons a{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:40px;
+      height:40px;
+      border-radius:50%;
+      background:linear-gradient(180deg, var(--peach), #F0B43A);
+      color:var(--navy-text);
+      margin-right:10px;
+      transition: all 0.2s ease;
+    }
+    .social-icons a:hover {
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 4px 12px rgba(246, 201, 176, 0.4);
+    }
+
+    /* Responsive Overrides */
+    @media (max-width:1200px){ .footer-grid{grid-template-columns:repeat(3,1fr)} }
+    @media (max-width:768px){ 
+      .footer-grid{grid-template-columns:repeat(2,1fr)} 
+      nav .desktop-only{display:none} 
+      .mobile-toggle{display:inline-flex} 
+      .mega-panel{left:12px;right:12px; padding:20px;}
+      .mega-panel .mega-col {min-width: unset;}
+      .hero{padding:26px 0} 
+      .footer-bottom {flex-direction: column; align-items: flex-start;}
+      .footer-bottom > div:last-child {text-align: left; margin-top: 15px;}
+    }
+    @media (max-width:640px){ .footer-grid{grid-template-columns:repeat(1,1fr)} }
+
+    /* Accessibility */
+    :focus{
+      outline:3px solid rgba(63, 90, 145, 0.5);
+      outline-offset:3px;
+      border-radius:12px;
+    }
+
+    /* Scroll Animations (using data attributes for JS targeting) */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-in-up.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Parallax Scroll Effect (simplified) */
+    .parallax-bg {
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+    }
+  </style>
+</head>
+
+<body class="antialiased">
+
+  <a href="#main" class="sr-only focus:not-sr-only p-2 bg-peach text-midnight font-semibold rounded-lg">Skip to main content</a>
+
+  <header>
+    <div class="site-max flex items-center justify-between py-4">
+      <div class="flex items-center gap-4">
+        <div class="logo-mark" aria-hidden="true">YF</div>
+        <div>
+          <a href="#home" data-link class="text-xl font-display font-bold" id="brand">YAFOAM</a>
+          <div class="text-xs opacity-80">Youth & Families on a Mission</div>
+        </div>
+      </div>
+
+      <nav class="relative">
+        <div class="hidden md:flex items-center gap-1">
+          
+          <div class="relative nav-item" data-key="programs">
+            <a href="#programs" data-link class="link">Programs</a>
+            <div class="mega-panel" data-panel="programs" aria-hidden="true">
+              <div class="mega-col">
+                <strong>Core Programs</strong>
+                <a href="#programs" data-link>Leadership Labs</a>
+                <a href="#programs" data-link>Summer Horizons (Flagship)</a>
+                <a href="#programs" data-link>Creative & Digital Media</a>
+                <a href="#programs" data-link>Employment Pathways</a>
+              </div>
+              <div class="mega-col">
+                <strong>Initiatives</strong>
+                <a href="#youth-empowerment" data-link>Youth Empowerment</a>
+                <a href="#family-services" data-link>Family Services</a>
+                <a href="#community-engagement" data-link>Community Outreach</a>
+                <a href="#events" data-link>Upcoming Events</a>
+              </div>
+              <div class="mega-col">
+                <strong>Wellness & Support</strong>
+                <a href="#family-services" data-link>Family Counseling</a>
+                <a href="#family-services" data-link>Newcomer Services</a>
+                <a href="#youth-empowerment" data-link>Wellness Circles</a>
+              </div>
+              <div class="mega-col">
+                <strong>Get Involved</strong>
+                <a href="#donate" data-link>Make a Donation</a>
+                <a href="#" onclick="openModal('volunteer-modal'); return false;">Volunteer Today</a>
+                <a href="#contact" data-link>Partner with Us</a>
+                <a href="#leadership" data-link>Our Team & Board</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="relative nav-item" data-key="mission">
+            <a href="#mission" data-link class="link">Mission</a>
+            <div class="mega-panel" data-panel="mission" aria-hidden="true">
+              <div class="mega-col"><strong>Our Story</strong><a href="#mission" data-link>Our Mission & Vision</a><a href="#leadership" data-link>Leadership</a><a href="#testimonials" data-link>Impact Stories</a></div>
+              <div class="mega-col"><strong>Transparency</strong><a href="#legal" data-link>Policies & Governance</a><a href="#legal" data-link>Financial Reports</a></div>
+            </div>
+          </div>
+
+          <div class="relative nav-item" data-key="resources">
+            <a href="#resources" data-link class="link">Resources</a>
+            <div class="mega-panel" data-panel="resources" aria-hidden="true">
+              <div class="mega-col"><strong>Resources</strong><a href="#resources" data-link>Community Guides</a><a href="#resources" data-link>Downloadable Forms</a></div>
+              <div class="mega-col"><strong>Media</strong><a href="#gallery" data-link>Photo Gallery</a><a href="#gallery" data-link>Video Library</a></div>
+              <div class="mega-col"><strong>Support</strong><a href="#support" data-link>Support Request</a><a href="#support" data-link>Emergency Helplines</a></div>
+            </div>
+          </div>
+
+          <a href="#contact" data-link class="link">Contact</a>
+          <a href="#donate" data-link class="px-4 py-2 rounded-xl text-midnight font-semibold bg-peach hover:bg-[#F0B43A] transition">Donate</a>
+        </div>
+
+        <button id="mobile-toggle" class="md:hidden p-3 rounded-xl hover:bg-peach/50 mobile-toggle transition" aria-label="Open menu">
+          <i data-feather="menu" class="w-6 h-6"></i>
+        </button>
+      </nav>
+
+      <div class="hidden md:flex items-center gap-3">
+        <select id="lang-select" class="rounded-xl border border-midnight/20 dark:border-white/10 p-2 text-sm bg-transparent dark:text-cream">
+          <option value="en">EN</option>
+          <option value="fr">FR</option>
+        </select>
+        <button id="dark-toggle" class="px-3 py-2 border rounded-xl hover:bg-peach/50 dark:hover:bg-midnight/50 transition" aria-pressed="false" aria-label="Toggle dark mode">
+          <i data-feather="moon" class="w-5 h-5 dark:hidden"></i>
+          <i data-feather="sun" class="w-5 h-5 hidden dark:block"></i>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-panel" class="hidden bg-cream/95 dark:bg-darkmode-bg/95 p-4 md:hidden border-t border-midnight/10 dark:border-white/10">
+      <a href="#home" data-link class="block py-3 px-2 rounded-lg hover:bg-peach/50 font-semibold transition">Home</a>
+      <a href="#programs" data-link class="block py-3 px-2 rounded-lg hover:bg-peach/50 font-semibold transition">Programs</a>
+      <a href="#youth-empowerment" data-link class="block py-3 px-2 rounded-lg hover:bg-peach/50 font-semibold transition">Youth Empowerment</a>
+      <a href="#family-services" data-link class="block py-3 px-2 rounded-lg hover:bg-peach/50 font-semibold transition">Family Services</a>
+      <a href="#community-engagement" data-link class="block py-3 px-2 rounded-lg hover:bg-peach/50 font-semibold transition">Community Engagement</a>
+      <a href="#support" data-link class="block py-3 px-2 rounded-lg hover:bg-peach/50 font-semibold transition">Get Support</a>
+      <a href="#donate" data-link class="block py-3 px-2 rounded-lg bg-peach/70 font-bold text-midnight transition">Donate</a>
+      <a href="#contact" data-link class="block py-3 px-2 rounded-lg hover:bg-peach/50 font-semibold transition">Contact Us</a>
+    </div>
+  </header>
+
+  <main id="main" class="site-max mt-8">
+
+    <section data-page="home" class="page" aria-labelledby="home-h">
+      <div class="hero rounded-3xl overflow-hidden shadow-lux">
+        <div class="bg-clip">
+          <video class="w-full h-full" autoplay muted loop playsinline poster="https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg">
+            <source src="https://static.videezy.com/system/resources/previews/000/042/839/original/Crowd_of_Youth.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="overlay"></div>
+
+        <div class="site-max z-10 relative flex flex-col lg:flex-row items-center justify-between gap-12 py-20">
+          <div class="hero-card max-w-3xl fade-in-up">
+            <h1 id="home-h" class="text-6xl font-display font-bold mb-4 text-midnight dark:text-cream">Generational Change Starts Here.</h1>
+            <p class="text-xl opacity-80 mb-6 dark:text-cream/90">We deliver community-driven programming that elevates young people and stabilizes families — combining **culturally responsive services**, **trauma-aware practice**, and **creative learning** for sustainable outcomes.</p>
+
+            <div class="flex gap-4">
+              <a href="#programs" data-link class="px-6 py-3 rounded-xl bg-peach text-midnight font-bold shadow-md hover:bg-[#F0B43A] transition">Explore Programs <i data-feather="arrow-right" class="w-5 h-5 inline-block ml-1"></i></a>
+              <a href="#support" data-link class="px-6 py-3 rounded-xl border border-midnight/50 dark:border-cream/50 font-semibold hover:bg-midnight/10 transition">Get Support Now</a>
+            </div>
+            
+            <div class="mt-12 grid grid-cols-3 gap-6">
+              <div class="stat-card text-center fade-in-up" data-delay="100"><div class="text-4xl font-bold text-midnight dark:text-peach" data-counter="1800">0</div><div class="text-sm opacity-70 mt-1">Youth Served Annually</div></div>
+              <div class="stat-card text-center fade-in-up" data-delay="300"><div class="text-4xl font-bold text-midnight dark:text-peach" data-counter="520">0</div><div class="text-sm opacity-70 mt-1">Families Supported</div></div>
+              <div class="stat-card text-center fade-in-up" data-delay="500"><div class="text-4xl font-bold text-midnight dark:text-peach" data-counter="95">0</div><div class="text-sm opacity-70 mt-1">Program Completion Rate (%)</div></div>
+            </div>
+          </div>
+
+          <aside class="hidden xl:block w-96 fade-in-up" data-delay="600">
+            <img src="https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg" alt="Mentorship highlight" class="w-full h-64 object-cover rounded-2xl shadow-lux" />
+            <div class="mt-6 p-4 glass-card">
+              <h3 class="font-bold text-xl text-midnight dark:text-peach">Mentorship for Life</h3>
+              <p class="text-sm opacity-80 mt-2">Connecting every youth with a committed, long-term mentor to navigate challenges and unlock potential.</p>
+              <div class="mt-4"><a href="#youth-empowerment" data-link class="text-sm font-semibold text-midnight dark:text-peach hover:underline">See Mentoring Impact <i data-feather="external-link" class="w-3 h-3 inline-block ml-1"></i></a></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <div class="mt-16 py-12">
+        <h2 class="text-4xl font-display font-bold text-center mb-10 text-midnight dark:text-peach fade-in-up">Holistic Impact Across Our Community</h2>
+        
+        <div class="grid lg:grid-cols-3 gap-8">
+          
+          <div class="card-3d-hover fade-in-up">
+            <div class="card-inner glass-card text-center p-6 flex flex-col items-center">
+              <i data-feather="user-check" class="w-12 h-12 text-peach mb-4"></i>
+              <h3 class="text-2xl font-semibold mb-2">Youth Leadership</h3>
+              <p class="opacity-80">Developing future civic leaders through intensive labs, paid placements, and real-world projects. Focus on career readiness.</p>
+              <a href="#youth-empowerment" data-link class="mt-4 text-sm font-semibold text-midnight dark:text-peach hover:underline">Discover Leadership Labs</a>
+            </div>
+          </div>
+
+          <div class="card-3d-hover fade-in-up" data-delay="200">
+            <div class="card-inner glass-card text-center p-6 flex flex-col items-center">
+              <i data-feather="home" class="w-12 h-12 text-peach mb-4"></i>
+              <h3 class="text-2xl font-semibold mb-2">Family Stability</h3>
+              <p class="opacity-80">Providing comprehensive newcomer settlement, family counseling, and practical support to build strong foundations.</p>
+              <a href="#family-services" data-link class="mt-4 text-sm font-semibold text-midnight dark:text-peach hover:underline">View Family Services</a>
+            </div>
+          </div>
+
+          <div class="card-3d-hover fade-in-up" data-delay="400">
+            <div class="card-inner glass-card text-center p-6 flex flex-col items-center">
+              <i data-feather="users" class="w-12 h-12 text-peach mb-4"></i>
+              <h3 class="text-2xl font-semibold mb-2">Community Mobilization</h3>
+              <p class="opacity-80">Driving collective action through partnerships, advocacy, and local initiatives like our community pantry and events.</p>
+              <a href="#community-engagement" data-link class="mt-4 text-sm font-semibold text-midnight dark:text-peach hover:underline">Get Involved</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-16 mb-20">
+        <article class="glass-card p-8 fade-in-up">
+          <h2 class="text-3xl font-display font-bold mb-4 text-midnight dark:text-peach">Our Core Strategy: The YAFOAM Model</h2>
+          <p class="text-lg opacity-90 mb-6">Our mission is not just a statement; it's a framework for action. We operate under a **Wraparound Service Model** that respects family complexity and addresses systemic barriers holistically.</p>
+
+          <div class="excerpt" id="strategy-excerpt">
+            <p class="mb-4"><strong>Mission:</strong> To empower young people and strengthen families through tailored programs, mentorship, practical supports, and partnerships. We center cultural competence, trauma-informed methods, and long-term relationships that generate sustainable outcomes in education, employment, mental health, and belonging. **Vision:** A community where every young person and family feels connected, valued, and equipped to reach their full potential. :contentReference[oaicite:3, 4]</p>
+            
+            <h4 class="text-xl font-semibold mt-4 mb-2">Pillars of Our Approach</h4>
+            <ul class="list-disc ml-6 space-y-2 opacity-80">
+              <li>**Cultural Responsiveness:** Programs are designed with deep respect for the diverse cultural backgrounds of our clients, ensuring relevance and trust.</li>
+              <li>**Trauma-Informed Practice:** All staff and volunteers are trained to recognize and respond to the impact of trauma, fostering a safe and supportive environment.</li>
+              <li>**Long-Term Mentorship:** We focus on developing sustained, trusting relationships rather than short-term interventions.</li>
+              <li>**Multi-Layered Programming:** We address multiple needs simultaneously, from crisis response to employment readiness and family stabilization. :contentReference[oaicite:4]</li>
+              <li>**Community Mobilization:** We believe in partnership, working with 25+ community organizations and funders to maximize resources and reach. :contentReference[oaicite:7]</li>
+            
+              <h4 class="text-xl font-semibold mt-4 mb-2">Extended Strategy Detail</h4>
+              <p class="mt-2">Our strategic roadmap for the next three years involves scaling our **Summer Horizons** flagship program by 40% and launching two new **Youth Mental Health Empowerment Hubs**. This requires a concerted effort in fund development and capacity building within our volunteer base. Key to this expansion is developing a digital literacy curriculum integrated into all youth programs, ensuring they are competitive in the modern workforce. We also plan to formalize a peer-to-peer family support network, leveraging the success stories of established newcomer families to guide recent arrivals.</p>
+              <p class="mt-2">The financial strategy focuses on diversifying revenue streams: 50% from government grants, 30% from corporate partnerships, and 20% from individual donors. This financial stability will allow us to offer all core services free of charge to eligible participants, upholding our commitment to accessibility and equity.</p>
+            </ul>
+          </div>
+          <div class="gradient-fade" id="strategy-fade">
+            <button class="read-more-btn" data-toggle="strategy">Read more ⇩</button>
+          </div>
+        </article>
+      </div>
+
+    </section>
+
+    <section data-page="mission" class="page hidden" aria-labelledby="mission-h">
+      <div class="py-12">
+        <h1 id="mission-h" class="text-5xl font-display font-bold text-midnight dark:text-peach mb-6 fade-in-up">Our Mission, Vision, and Values</h1>
+        <p class="text-xl opacity-80 mb-10 dark:text-cream/90 fade-in-up" data-delay="100">Our purpose is to create lasting, generational change through compassion, excellence, and faith-rooted action. :contentReference[oaicite:16]</p>
+
+        <div class="grid lg:grid-cols-2 gap-12">
+          
+          <div class="fade-in-up">
+            <div class="glass-card p-8">
+              <h2 class="text-3xl font-display font-bold text-midnight dark:text-peach mb-4">The YAFOAM Mandate</h2>
+              <p class="text-lg mb-4">Our work is guided by the belief that every young person and family, regardless of circumstance, deserves access to the tools and support needed to thrive. We blend faith-rooted compassion with evidence-based programming. :contentReference[oaicite:16]</p>
+
+              <div class="bg-peach/30 dark:bg-midnight/30 p-4 rounded-xl mt-6">
+                <blockquote class="italic border-l-4 border-peach pl-4 text-gray-700 dark:text-cream/80">
+                  "YAFOAM helped our family find stability and hope after job loss and settlement challenges. They don't just offer services; they offer a community." — The Osei Family, Supported Family, 2024.
+                </blockquote>
+              </div>
+
+              <h3 class="text-2xl font-semibold mt-8 mb-3">Our Core Values</h3>
+              <ul class="space-y-3">
+                <li class="flex items-start"><i data-feather="heart" class="w-5 h-5 text-peach mr-3 flex-shrink-0 mt-1"></i> <strong>Compassion:</strong> Operating with empathy, recognizing the human dignity in every interaction.</li>
+                <li class="flex items-start"><i data-feather="users" class="w-5 h-5 text-peach mr-3 flex-shrink-0 mt-1"></i> <strong>Inclusion:</strong> Building a safe space where all cultures and identities are celebrated and affirmed.</li>
+                <li class="flex items-start"><i data-feather="zap" class="w-5 h-5 text-peach mr-3 flex-shrink-0 mt-1"></i> <strong>Excellence:</strong> Committing to the highest standards in program delivery, evaluation, and organizational governance.</li>
+                <li class="flex items-start"><i data-feather="target" class="w-5 h-5 text-peach mr-3 flex-shrink-0 mt-1"></i> <strong>Empowerment:</strong> Shifting power to community members, fostering self-reliance and advocacy.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="fade-in-up" data-delay="200">
+            <div class="glass-card p-8 h-full">
+              <h2 class="text-3xl font-display font-bold text-midnight dark:text-peach mb-4">History & Organizational Structure</h2>
+              <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg" alt="YAFOAM community history photo" class="w-full h-56 object-cover rounded-xl mb-4 shadow-md" />
+              
+              <div class="excerpt" id="history-excerpt">
+                <p class="text-lg mb-4">YAFOAM began as a local initiative to provide mentoring and practical assistance to a small cluster of families facing resettlement and economic challenges. From humble beginnings operating out of a shared community space, the demand for our culturally-specific services grew rapidly. Over time, it expanded to include structured youth programs, a food pantry, formal counseling referrals, and public advocacy. :contentReference[oaicite:17]</p>
+                <p class="mt-2">Our organizational structure is flat and community-led. The **Board of Directors** provides strategic oversight, ensuring financial and ethical governance. The **Executive Director** (Rev. Dr. Irine Ashu) manages day-to-day operations and fund development. Programming is divided into three key departments: Youth Development, Family Stabilization, and Community Initiatives. Each department operates autonomously while sharing resources in the spirit of our wraparound service model. We prioritize hiring from the communities we serve, ensuring lived experience informs all our service delivery.</p>
+                <p class="mt-2">A key milestone was receiving our charitable status, which allowed us to secure major government funding for the **Summer Horizons** and **FreshStart Integration** initiatives, dramatically increasing our capacity to serve thousands annually. Full founding narrative, early projects and evaluations are drawn from the uploaded organization file. :contentReference[oaicite:18]</p>
+              </div>
+              <div class="gradient-fade" id="history-fade">
+                <button class="read-more-btn" data-toggle="history">Read more ⇩</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-12 p-8 bg-midnight dark:bg-peach text-cream dark:text-midnight rounded-3xl shadow-lux fade-in-up" data-delay="400">
+          <div class="flex items-center">
+            <i data-feather="shield" class="w-8 h-8 mr-4 flex-shrink-0"></i>
+            <div>
+              <h3 class="text-2xl font-bold">Commitment to Transparency</h3>
+              <p class="opacity-90">We are committed to full disclosure. View our full governance policies, annual reports, and impact evaluations in the Legal and Resources sections.</p>
+            </div>
+            <a href="#legal" data-link class="ml-auto px-4 py-2 bg-cream text-midnight rounded-xl font-semibold hover:bg-white transition">View Documents</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-page="programs" class="page hidden" aria-labelledby="programs-h">
+      <div class="hero rounded-3xl overflow-hidden shadow-lux">
+        <div class="bg-clip">
+          <video class="w-full h-full" autoplay muted loop playsinline poster="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4">
+            <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="overlay"></div>
+        <div class="site-max z-10 relative py-20">
+          <div class="hero-card max-w-3xl fade-in-up">
+            <h1 id="programs-h" class="text-5xl font-display font-bold text-midnight dark:text-cream">Programs — Our Full Catalog</h1>
+            <p class="text-lg opacity-80 mt-3 dark:text-cream/90">A deep catalog of our offerings for youth, families and communities — adaptive, culturally responsive, and evidence-based. We customize interventions to maximize outcomes. :contentReference[oaicite:11]</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-16 space-y-12">
+        <h2 class="text-4xl font-display font-bold text-midnight dark:text-peach fade-in-up">Flagship Initiatives</h2>
+
+        <section class="p-8 glass-card fade-in-up">
+          <div class="flex flex-col md:flex-row gap-6">
+            <img src="https://images.pexels.com/photos/1005023/pexels-photo-1005023.jpeg" alt="Youth working in group" class="rounded-xl w-full md:w-1/3 h-56 object-cover shadow-lg" />
+            <div>
+              <h3 class="text-3xl font-semibold mb-3 text-midnight dark:text-peach">Summer Horizons: Youth Employment & Enrichment</h3>
+              <p class="text-lg opacity-90 mb-4">Our flagship program combining **paid placements**, leadership training, and creative arts labs. Youth participate in structured cohorts with employer placements and dedicated mentor support, building career readiness and civic leadership skills. :contentReference[oaicite:12]</p>
+              
+              <details class="mt-3">
+                <summary class="cursor-pointer font-bold text-midnight dark:text-peach">See full program components</summary>
+                <div class="mt-3 p-4 bg-cream dark:bg-midnight/20 rounded-lg">
+                  <ul class="list-disc ml-6 space-y-2 opacity-80">
+                    <li>**Pre-placement Training (40 hrs):** Resume writing, interview skills, workplace etiquette.</li>
+                    <li>**Paid On-Site Placements (8 weeks):** Job experience in diverse fields (tech, non-profit, retail).</li>
+                    <li>**Weekly Leadership Seminars:** Focusing on financial literacy, critical thinking, and civic engagement.</li>
+                    <li>**Mentor Pairing:** Dedicated one-on-one support throughout the placement.</li>
+                    <li>**Showcase & Follow-Up:** Portfolio development and post-program career coaching.</li>
+                  </ul>
+                </div>
+              </details>
+            </div>
+          </div>
+        </section>
+
+        <section class="p-8 glass-card fade-in-up" data-delay="200">
+          <h3 class="text-3xl font-semibold mb-3 text-midnight dark:text-peach">FreshStart Integration Initiative (Newcomer Support)</h3>
+          <p class="text-lg opacity-90 mb-4">A critical service offering **settlement support**, language assistance, community navigation, and cultural integration for newcomers. We specialize in culturally-specific navigation and referrals to ensure a smooth transition and rapid community integration. :contentReference[oaicite:14, 21]</p>
+          <a href="#family-services" data-link class="text-sm font-semibold text-midnight dark:text-peach hover:underline">See full Newcomer Services Details</a>
+        </section>
+        
+        <h2 class="text-4xl font-display font-bold text-midnight dark:text-peach pt-8 fade-in-up">Comprehensive Youth Development</h2>
+
+        <section class="p-8 glass-card fade-in-up" data-delay="400">
+            <h3 class="text-3xl font-semibold mb-3 text-midnight dark:text-peach">Creative & Digital Media Labs</h3>
+            <div class="excerpt" id="creative-lab-excerpt" style="max-height: 10rem;">
+                <p class="text-lg opacity-90 mb-4">Our labs offer hands-on experience in high-demand digital skills, including graphic design, video production, podcasting, and social media strategy. This initiative is designed to foster a generation of empowered youth who develop wisdom, creativity, capacity, and knowledge to draw strength and build resilience. The goal is to bridge the digital divide and equip youth for the creative economy. :contentReference[oaicite:8]</p>
+                <h4 class="text-xl font-semibold mt-4 mb-2">Detailed Curriculum Outline</h4>
+                <ul class="list-disc ml-6 space-y-2 opacity-80">
+                    <li>**Module 1: Visual Storytelling:** Introduction to Adobe Creative Suite (Photoshop, Illustrator) and visual hierarchy.</li>
+                    <li>**Module 2: Video & Audio Production:** Scripting, shooting, and editing short-form content. Using professional-grade equipment.</li>
+                    <li>**Module 3: Portfolio Development:** Creating a robust, public-facing portfolio and professional online presence.</li>
+                    <li>**Module 4: Industry Mentorship:** Guest lectures from local creative professionals and agency visits.</li>
+                    <li>**Impact:** Through innovative programs and mentorship, we empower youth to cultivate wisdom, embracing critical thinking and informed decision-making. Capacity building and knowledge development are core to this initiative, leading to measurable increases in employment and educational enrolment. :contentReference[oaicite:9]</li>
+                    <li>**Project-Based Learning:** Youth work in teams on real-world client projects for local non-profits, providing valuable experiential learning.</li>
+                </ul>
+                <p class="mt-4 opacity-80">This program runs in three annual cycles, with a total capacity of 150 youth. Graduates receive industry certification vouchers and continued access to the lab's equipment for personal projects for one year.</p>
+            </div>
+            <div class="gradient-fade" id="creative-lab-fade">
+                <button class="read-more-btn" data-toggle="creative-lab">Read more ⇩</button>
+            </div>
+        </section>
+      </div>
+
+    </section>
+
+    <section data-page="youth-empowerment" class="page hidden" aria-labelledby="youth-h">
+      <div class="py-12">
+        <h1 id="youth-h" class="text-5xl font-display font-bold text-midnight dark:text-peach mb-6 fade-in-up">Youth Empowerment: Wisdom, Capacity, and Resilience</h1>
+        <p class="text-xl opacity-80 mb-10 dark:text-cream/90 fade-in-up" data-delay="100">We are dedicated to fostering a generation of empowered youth who develop wisdom, creativity, capacity, and knowledge to draw strength and build resilience in the face of systemic challenges. :contentReference[oaicite:8]</p>
+
+        <div class="grid lg:grid-cols-2 gap-12">
+          
+          <div class="glass-card p-8 fade-in-up">
+            <i data-feather="smile" class="w-10 h-10 text-peach mb-4"></i>
+            <h2 class="text-3xl font-semibold mb-3 text-midnight dark:text-peach">Youth Mental Health Empowerment Hub</h2>
+            <p class="text-lg opacity-90 mb-4">We create a compassionate and supportive space for young people, fostering **mental well-being** and **resilience** through awareness, counseling, and powerful, **stigma-breaking initiatives**. Our services are completely confidential and culturally appropriate. :contentReference[oaicite:10]</p>
+
+            <details class="mt-4">
+              <summary class="cursor-pointer font-bold">Services & Delivery Model</summary>
+              <div class="mt-2 p-4 bg-cream dark:bg-midnight/20 rounded-lg">
+                <ul class="list-disc ml-6 space-y-2 opacity-80">
+                  <li>**Wellness Circles:** Group therapy and peer support sessions facilitated by licensed professionals.</li>
+                  <li>**Individual Crisis Counseling:** Short-term, immediate support and long-term referral services.</li>
+                  <li>**Mindfulness & Trauma-Aware Workshops:** Skills-based training in emotional regulation.</li>
+                  <li>**Art Therapy:** Utilizing creative expression as a pathway to healing and self-discovery.</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+
+          <div class="glass-card p-8 fade-in-up" data-delay="200">
+            <i data-feather="key" class="w-10 h-10 text-peach mb-4"></i>
+            <h2 class="text-3xl font-semibold mb-3 text-midnight dark:text-peach">At-Risk Intervention & Re-Engagement</h2>
+            <p class="text-lg opacity-90 mb-4">Targeted support for youth facing academic disengagement, justice system involvement, or chronic homelessness. We focus on re-establishing stability, education, and positive mentorship connections.</p>
+            <div class="bg-midnight/10 dark:bg-midnight/40 p-4 rounded-xl mt-6">
+              <p class="font-semibold text-midnight dark:text-peach">Need Immediate Help?</p>
+              <p class="text-sm opacity-80 mt-1">Contact our dedicated Re-Engagement Coordinator for confidential intake and assessment. **(555) 555-5555 Ext. 102**</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-12 p-8 glass-card fade-in-up" data-delay="400">
+          <blockquote class="text-2xl italic font-display text-center text-midnight dark:text-cream/90">
+            "Before YAFOAM, I felt invisible. The Digital Media Lab gave me a skill, and my mentor gave me a future. Now I'm a paid intern."
+          </blockquote>
+          <p class="text-center font-semibold mt-4">— Alex T., Creative Labs Graduate</p>
+        </div>
+
+        <div class="mt-12">
+            <h2 class="text-3xl font-display font-bold text-midnight dark:text-peach mb-6 fade-in-up">Youth in Action Photo Gallery</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="gallery-item rounded-xl overflow-hidden shadow-md transition hover:scale-[1.02] cursor-pointer fade-in-up" tabindex="0" data-large="https://images.pexels.com/photos/1769352/pexels-photo-1769352.jpeg" data-caption="Youth Leadership Workshop">
+                    <img src="https://images.pexels.com/photos/1769352/pexels-photo-1769352.jpeg" alt="Leadership Workshop" class="w-full h-48 object-cover" loading="lazy">
+                </div>
+                <div class="gallery-item rounded-xl overflow-hidden shadow-md transition hover:scale-[1.02] cursor-pointer fade-in-up" data-delay="100" tabindex="0" data-large="https://images.pexels.com/photos/207983/pexels-photo-207983.jpeg" data-caption="Digital Media Training">
+                    <img src="https://images.pexels.com/photos/207983/pexels-photo-207983.jpeg" alt="Digital Media Training" class="w-full h-48 object-cover" loading="lazy">
+                </div>
+                <div class="gallery-item rounded-xl overflow-hidden shadow-md transition hover:scale-[1.02] cursor-pointer fade-in-up" data-delay="200" tabindex="0" data-large="https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg" data-caption="Mentorship Session">
+                    <img src="https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg" alt="Mentorship Session" class="w-full h-48 object-cover" loading="lazy">
+                </div>
+                <div class="gallery-item rounded-xl overflow-hidden shadow-md transition hover:scale-[1.02] cursor-pointer fade-in-up" data-delay="300" tabindex="0" data-large="https://images.pexels.com/photos/210647/pexels-photo-210647.jpeg" data-caption="Summer Horizons Field Trip">
+                    <img src="https://images.pexels.com/photos/210647/pexels-photo-210647.jpeg" alt="Summer Horizons Field Trip" class="w-full h-48 object-cover" loading="lazy">
+                </div>
+            </div>
+            <p class="text-right mt-4"><a href="#gallery" data-link class="text-sm font-semibold text-midnight dark:text-peach hover:underline">View Full Gallery & Videos →</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section data-page="family-services" class="page hidden" aria-labelledby="family-h">
+      <div class="py-12">
+        <h1 id="family-h" class="text-5xl font-display font-bold text-midnight dark:text-peach mb-6 fade-in-up">Family Services: Building Resilience Together</h1>
+        <p class="text-xl opacity-80 mb-10 dark:text-cream/90 fade-in-up" data-delay="100">We strengthen the family unit through compassionate, professional support for communication, conflict resolution, and problem-solving, creating a foundation of harmony. :contentReference[oaicite:13]</p>
+
+        <div class="grid lg:grid-cols-3 gap-8">
+          
+          <div class="glass-card p-8 fade-in-up">
+            <i data-feather="book-open" class="w-10 h-10 text-peach mb-4"></i>
+            <h3 class="text-2xl font-semibold mb-2">Family Harmony Consultation</h3>
+            <p class="opacity-80">Compassionate, professional support focusing on communication strategies, boundary setting, and family problem-solving tools. :contentReference[oaicite:13]</p>
+            <a href="#support" data-link class="mt-4 text-sm font-semibold text-midnight dark:text-peach hover:underline">Request Consultation</a>
+          </div>
+
+          <div class="glass-card p-8 fade-in-up" data-delay="200">
+            <i data-feather="map-pin" class="w-10 h-10 text-peach mb-4"></i>
+            <h3 class="text-2xl font-semibold mb-2">Newcomer Settlement Support</h3>
+            <p class="opacity-80">Our FreshStart Integration Initiative provides critical settlement assistance, language access, and help navigating complex local systems. :contentReference[oaicite:14, 21]</p>
+            <a href="#support" data-link class="mt-4 text-sm font-semibold text-midnight dark:text-peach hover:underline">Start Intake Process</a>
+          </div>
+
+          <div class="glass-card p-8 fade-in-up" data-delay="400">
+            <i data-feather="globe" class="w-10 h-10 text-peach mb-4"></i>
+            <h3 class="text-2xl font-semibold mb-2">Mindful Nutrition Initiative</h3>
+            <p class="opacity-80">Addressing food security through our community pantry and education that supports brain health, mindful eating, and food access. :contentReference[oaicite:15, 22]</p>
+            <a href="#events" data-link class="mt-4 text-sm font-semibold text-midnight dark:text-peach hover:underline">See Food Pantry Hours</a>
+          </div>
+        </div>
+
+        <div class="mt-16 py-20 parallax-bg rounded-3xl shadow-lux fade-in-up" style="background-image: url('https://images.pexels.com/photos/1556950/pexels-photo-1556950.jpeg');">
+          <div class="bg-midnight/70 p-10 rounded-2xl max-w-4xl mx-auto text-cream dark:bg-midnight/90">
+            <h2 class="text-4xl font-display font-bold mb-4 text-peach">Supporting the Whole Family Unit</h2>
+            <div class="excerpt" id="parenting-excerpt" style="max-height: 12rem;">
+              <p class="text-lg mb-4">The health of the youth is inextricably linked to the stability of the family. Our **Parenting Groups** are designed to foster positive parenting techniques, cross-cultural communication, and parental wellness. These groups meet bi-weekly and cover topics ranging from navigating the school system to understanding adolescent mental health challenges.</p>
+              
+              <h3 class="text-2xl font-semibold mt-6 mb-3">Key Workshop Themes:</h3>
+              <ul class="list-disc ml-6 space-y-2 opacity-90">
+                <li>**Digital Parenting:** Managing screen time and online safety in a connected world.</li>
+                <li>**Inter-Generational Communication:** Bridging the gap between newcomer parents and Canadian-born youth.</li>
+                <li>**Financial Literacy:** Budgeting and accessing public services to improve family economic stability.</li>
+                <li>**Advocacy in Education:** Empowering parents to effectively support their children's academic success.</li>
+              </ul>
+              <p class="mt-4">We are committed to providing **350+ families** annually with comprehensive support, including confidential counseling and referrals to ensure all barriers, such as employment and housing, are addressed within our wraparound service model. :contentReference[oaicite:6]</p>
+            </div>
+            <div class="gradient-fade" style="background:linear-gradient(180deg,transparent,rgba(63, 90, 145, 0.7));" id="parenting-fade">
+              <button class="read-more-btn" data-toggle="parenting" style="background:var(--peach); color:var(--midnight);">Read more ⇩</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-page="community-engagement" class="page hidden" aria-labelledby="community-h">
+      <div class="py-12">
+        <h1 id="community-h" class="text-5xl font-display font-bold text-midnight dark:text-peach mb-6 fade-in-up">Community Engagement: Partners, Events, and Advocacy</h1>
+        <p class="text-xl opacity-80 mb-10 dark:text-cream/90 fade-in-up" data-delay="100">Our impact extends beyond our doors. We actively mobilize communities, collaborate with **25+ partners** and funders, and advocate for systemic change to benefit youth and families. :contentReference[oaicite:7]</p>
+
+        <h2 class="text-3xl font-display font-bold text-midnight dark:text-peach mb-6 fade-in-up">Our Trusted Partners</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+          <div class="glass-card p-4 text-center fade-in-up" data-delay="100">
+            <img src="https://via.placeholder.com/150x50.png?text=Gov+Grant+Body" alt="Partner Logo" class="mx-auto h-12 object-contain filter grayscale hover:grayscale-0 transition" />
+            <p class="text-xs mt-2 opacity-70">Major Funder</p>
+          </div>
+          <div class="glass-card p-4 text-center fade-in-up" data-delay="200">
+            <img src="https://via.placeholder.com/150x50.png?text=Local+School+Board" alt="Partner Logo" class="mx-auto h-12 object-contain filter grayscale hover:grayscale-0 transition" />
+            <p class="text-xs mt-2 opacity-70">Education Partner</p>
+          </div>
+          <div class="glass-card p-4 text-center fade-in-up" data-delay="300">
+            <img src="https://via.placeholder.com/150x50.png?text=Corp+Sponsor" alt="Partner Logo" class="mx-auto h-12 object-contain filter grayscale hover:grayscale-0 transition" />
+            <p class="text-xs mt-2 opacity-70">Corporate Ally</p>
+          </div>
+          <div class="glass-card p-4 text-center fade-in-up" data-delay="400">
+            <img src="https://via.placeholder.com/150x50.png?text=Housing+Org" alt="Partner Logo" class="mx-auto h-12 object-contain filter grayscale hover:grayscale-0 transition" />
+            <p class="text-xs mt-2 opacity-70">Referral Network</p>
+          </div>
+        </div>
+
+        <div class="bg-peach/30 dark:bg-midnight/30 p-8 rounded-3xl fade-in-up" data-delay="500">
+          <h2 class="text-3xl font-display font-bold mb-4 text-midnight dark:text-peach">Join Our Mission</h2>
+          <p class="text-lg opacity-90 mb-4">We are always seeking new partners who share our commitment to equitable outcomes. Whether through corporate social responsibility, volunteer mobilization, or joint program delivery, your contribution multiplies our impact.</p>
+          <button onclick="openModal('contact-modal')" class="px-6 py-3 bg-midnight text-cream rounded-xl font-semibold hover:bg-midnight/90 transition">Become a Partner <i data-feather="chevron-right" class="w-4 h-4 inline-block ml-2"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <section data-page="events" class="page hidden" aria-labelledby="events-h">
+      <div class="py-12">
+        <h1 id="events-h" class="text-5xl font-display font-bold text-midnight dark:text-peach mb-6 fade-in-up">Upcoming Events & Activities</h1>
+        <p class="text-xl opacity-80 mb-10 dark:text-cream/90 fade-in-up" data-delay="100">Find out what's happening this month! From Youth Leadership Summits to Family Fun Days and Community Advocacy Workshops.</p>
+
+        <div class="space-y-4">
+          <details class="glass-card p-5 fade-in-up">
+            <summary class="cursor-pointer font-bold text-xl text-midnight dark:text-peach flex justify-between items-center">
+              <span>Youth Leadership Summit 2025</span>
+              <span class="text-sm font-normal text-gray-500">January 20, 2025</span>
+            </summary>
+            <div class="mt-3 opacity-80 border-t pt-3">
+              <p>An all-day event for 150+ youth focused on civic engagement, networking with local politicians, and developing community action plans. Keynote speaker to be announced.</p>
+              <a href="#" class="text-sm font-semibold text-midnight dark:text-peach hover:underline mt-2 inline-block">Register Here</a>
+            </div>
+          </details>
+
+          <details class="glass-card p-5 fade-in-up" data-delay="100">
+            <summary class="cursor-pointer font-bold text-xl text-midnight dark:text-peach flex justify-between items-center">
+              <span>Family Harmony Day</span>
+              <span class="text-sm font-normal text-gray-500">February 15, 2025</span>
+            </summary>
+            <div class="mt-3 opacity-80 border-t pt-3">
+              <p>A free, open-to-the-public community event with food, games, live music, and booths from settlement service partners. All ages welcome.</p>
+            </div>
+          </details>
+          
+          <details class="glass-card p-5 fade-in-up" data-delay="200">
+            <summary class="cursor-pointer font-bold text-xl text-midnight dark:text-peach flex justify-between items-center">
+              <span>Digital Media Portfolio Review</span>
+              <span class="text-sm font-normal text-gray-500">Monthly</span>
+            </summary>
+            <div class="mt-3 opacity-80 border-t pt-3">
+              <p>A private session for Creative & Digital Lab students to receive professional critique from industry veterans. Essential for job readiness.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section data-page="testimonials" class="page hidden" aria-labelledby="testimonials-h">
+      <div class="py-12">
+        <h1 id="testimonials-h" class="text-5xl font-display font-bold text-center text-midnight dark:text-peach mb-10 fade-in-up">Stories of Impact & Transformation</h1>
+        
+        <div class="relative max-w-4xl mx-auto glass-card p-8 shadow-lux overflow-hidden">
+          <div id="testimonial-slider" class="flex transition-transform duration-500 ease-in-out">
+            
+            <div class="testimonial-slide active w-full flex-shrink-0 text-center p-6">
+              <i data-feather="quote" class="w-10 h-10 mx-auto text-peach mb-4"></i>
+              <blockquote class="text-2xl italic font-display text-gray-700 dark:text-cream/90">
+                "My son was drifting before Summer Horizons. The paid internship transformed his confidence. He’s now enrolled in college and working part-time. YAFOAM gave him a purpose."
+              </blockquote>
+              <p class="font-semibold mt-6">— Maria S., Mother of Program Participant</p>
+            </div>
+
+            <div class="testimonial-slide w-full flex-shrink-0 text-center p-6">
+              <i data-feather="quote" class="w-10 h-10 mx-auto text-peach mb-4"></i>
+              <blockquote class="text-2xl italic font-display text-gray-700 dark:text-cream/90">
+                "The FreshStart team navigated the complex immigration paperwork for us. We felt lost until they connected us to housing and language classes. Truly life-saving support."
+              </blockquote>
+              <p class="font-semibold mt-6">— The Al-Hassan Family, Newcomer Services</p>
+            </div>
+
+            <div class="testimonial-slide w-full flex-shrink-0 text-center p-6">
+              <i data-feather="quote" class="w-10 h-10 mx-auto text-peach mb-4"></i>
+              <blockquote class="text-2xl italic font-display text-gray-700 dark:text-cream/90">
+                "The Youth Mental Health Hub is the only place where I felt heard without judgment. The Wellness Circles are my safe space."
+              </blockquote>
+              <p class="font-semibold mt-6">— Anonymous Youth, Wellness Circles</p>
+            </div>
+          </div>
+          
+          <div class="flex justify-center mt-6 space-x-3">
+            <button onclick="prevTestimonial()" class="p-2 rounded-full bg-peach/50 hover:bg-peach transition" aria-label="Previous testimonial"><i data-feather="chevron-left" class="w-5 h-5"></i></button>
+            <button onclick="nextTestimonial()" class="p-2 rounded-full bg-peach/50 hover:bg-peach transition" aria-label="Next testimonial"><i data-feather="chevron-right" class="w-5 h-5"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-page="leadership" class="page hidden" aria-labelledby="leadership-h">
+      <div class="py-12">
+        <h1 id="leadership-h" class="text-5xl font-display font-bold text-midnight dark:text-peach mb-6 fade-in-up">Our Leadership & Dedicated Team</h1>
+        <p class="text-xl opacity-80 mb-10 dark:text-cream/90 fade-in-up" data-delay="100">Meet the individuals driving the YAFOAM mission forward with passion, integrity, and deep community experience.</p>
+
+        <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-8">
+          
+          <div class="glass-card p-5 text-center fade-in-up">
+            <img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg" alt="Founder photo" class="rounded-full w-32 h-32 object-cover mx-auto shadow-md border-4 border-peach mb-4" />
+            <h4 class="font-bold text-xl">Rev. Dr. Irine Ashu</h4>
+            <p class="text-sm font-semibold text-peach">Founder & Executive Director</p>
+            <p class="text-sm opacity-80 mt-2">Visionary leader with a background in community development and a lifelong commitment to youth advocacy. :contentReference[oaicite:19]</p>
+          </div>
+
+          <div class="glass-card p-5 text-center fade-in-up" data-delay="100">
+            <img src="https://images.pexels.com/photos/3771087/pexels-photo-3771087.jpeg" alt="Program lead" class="rounded-full w-32 h-32 object-cover mx-auto shadow-md border-4 border-peach mb-4" />
+            <h4 class="font-bold text-xl">Kwame Adjei</h4>
+            <p class="text-sm font-semibold text-peach">Programs Director</p>
+            <p class="text-sm opacity-80 mt-2">Leads programming, partnerships, and evaluation. Ensures evidence-based practice across all initiatives.</p>
+          </div>
+          
+          <div class="glass-card p-5 text-center fade-in-up" data-delay="200">
+            <img src="https://images.pexels.com/photos/374870/pexels-photo-374870.jpeg" alt="Family support" class="rounded-full w-32 h-32 object-cover mx-auto shadow-md border-4 border-peach mb-4" />
+            <h4 class="font-bold text-xl">Sarah Chen</h4>
+            <p class="text-sm font-semibold text-peach">Family Support Coordinator</p>
+            <p class="text-sm opacity-80 mt-2">Coordinates intake, referrals, and counseling partnerships, specializing in newcomer and crisis support.</p>
+          </div>
+          
+          <div class="glass-card p-5 text-center fade-in-up" data-delay="300">
+            <img src="https://images.pexels.com/photos/3760855/pexels-photo-3760855.jpeg" alt="Board Chair" class="rounded-full w-32 h-32 object-cover mx-auto shadow-md border-4 border-peach mb-4" />
+            <h4 class="font-bold text-xl">David O'Malley</h4>
+            <p class="text-sm font-semibold text-peach">Board Chair</p>
+            <p class="text-sm opacity-80 mt-2">Provides essential strategic governance and financial oversight. Dedicated volunteer leader.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-page="support" class="page hidden" aria-labelledby="support-h">
+      <div class="py-12">
+        <h1 id="support-h" class="text-5xl font-display font-bold text-midnight dark:text-peach mb-6 fade-in-up">Get The Support You Need</h1>
+        <p class="text-xl opacity-80 mb-10 dark:text-cream/90 fade-in-up" data-delay="100">Whether you are a young person searching for direction or a family needing stabilization, YAFOAM is your safe place to land. We are here to help. :contentReference[oaicite:20]</p>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          
+          <form id="support-form" class="p-8 glass-card fade-in-up" onsubmit="submitSupportForm(event)">
+            <h3 class="font-bold text-2xl mb-4 text-midnight dark:text-peach">Youth/Family Support Intake</h3>
+            <div class="space-y-4">
+              <input id="sname" placeholder="Full name" class="w-full p-3 rounded-lg border border-peach/50 bg-cream/70 dark:bg-darkmode-bg/50" required>
+              <input id="semail" type="email" placeholder="Email" class="w-full p-3 rounded-lg border border-peach/50 bg-cream/70 dark:bg-darkmode-bg/50" required>
+              <select id="stype" class="w-full p-3 rounded-lg border border-peach/50 bg-cream/70 dark:bg-darkmode-bg/50">
+                <option>Request Type: Youth Intake (12-24)</option>
+                <option>Family Support / Counseling</option>
+                <option>Newcomer Settlement Assistance</option>
+                <option>Crisis Referral</option>
+                <option>General Inquiry</option>
+              </select>
+              <textarea id="smsg" placeholder="Tell us briefly how we can help and the nature of your need." class="w-full p-3 rounded-lg border border-peach/50 bg-cream/70 dark:bg-darkmode-bg/50" rows="5" required></textarea>
+              <div id="support-status" class="text-sm text-green-700 dark:text-green-300 font-semibold"></div>
+              <button class="px-6 py-3 bg-peach text-midnight rounded-xl font-bold hover:bg-[#F0B43A] transition w-full">Submit Confidential Request</button>
+            </div>
+          </form>
+
+          <div class="p-8 glass-card fade-in-up" data-delay="200">
+            <h3 class="font-bold text-2xl mb-4 text-midnight dark:text-peach">Urgent & Community Resources</h3>
+            <ul class="space-y-4 text-lg">
+              <li class="p-3 bg-peach/20 dark:bg-midnight/20 rounded-lg">
+                <strong>Emergency Crisis:</strong> <a href="tel:911" class="text-red-600 dark:text-red-400 font-bold underline">Call 911</a> (if immediate danger).
+              </li>
+              <li class="p-3 bg-peach/20 dark:bg-midnight/20 rounded-lg">
+                <strong>Settlement & Newcomers:</strong> <span class="font-semibold">FreshStart Integration Initiative.</span> Culturally specific navigation and referrals. :contentReference[oaicite:21]
+              </li>
+              <li class="p-3 bg-peach/20 dark:bg-midnight/20 rounded-lg">
+                <strong>Food Access:</strong> <span class="font-semibold">Mindful Nutrition Initiative.</span> Community pantry and mindful nutrition education. :contentReference[oaicite:22]
+              </li>
+              <li class="p-3 bg-peach/20 dark:bg-midnight/20 rounded-lg">
+                <strong>Mental Health Hotline:</strong> Text **HOME** to 686868 (National Crisis Line).
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-page="donate" class="page hidden" aria-labelledby="donate-h">
+      <div class="py-12">
+        <h1 id="donate-h" class="text-5xl font-display font-bold text-center text-midnight dark:text-peach mb-6 fade-in-up">Invest in a Future Generation</h1>
+        <p class="text-xl opacity-80 text-center mb-10 dark:text-cream/90 fade-in-up" data-delay="100">Help YAFOAM scale programs and support families. Your donation is a direct investment in a child’s education, a youth’s career, and a family's stability. We accept card, PayPal/CanadaHelps and e-transfer. :contentReference[oaicite:23]</p>
+
+        <div class="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+          
+          <div class="glass-card p-6 text-center transition transform hover:scale-[1.05] fade-in-up">
+            <h3 class="text-3xl font-bold text-midnight dark:text-peach">$50</h3>
+            <p class="text-sm opacity-80 mt-1">Provides educational supplies for 5 youth</p>
+            <button class="mt-4 px-4 py-2 bg-peach text-midnight rounded-xl font-bold hover:bg-[#F0B43A] transition w-full" onclick="openDonateModal(50)">Donate $50</button>
+          </div>
+          
+          <div class="glass-card p-6 text-center transition transform hover:scale-[1.05] fade-in-up" data-delay="100">
+            <h3 class="text-3xl font-bold text-midnight dark:text-peach">$150</h3>
+            <p class="text-sm opacity-80 mt-1">Sponsors a youth for a full month of mentorship</p>
+            <button class="mt-4 px-4 py-2 bg-peach text-midnight rounded-xl font-bold hover:bg-[#F0B43A] transition w-full" onclick="openDonateModal(150)">Donate $150</button>
+          </div>
+          
+          <div class="glass-card p-6 text-center transition transform hover:scale-[1.05] fade-in-up" data-delay="200">
+            <h3 class="text-3xl font-bold text-midnight dark:text-peach">$500</h3>
+            <p class="text-sm opacity-80 mt-1">Covers one week of Newcomer Settlement for a family</p>
+            <button class="mt-4 px-4 py-2 bg-peach text-midnight rounded-xl font-bold hover:bg-[#F0B43A] transition w-full" onclick="openDonateModal(500)">Donate $500</button>
+          </div>
+          
+          <div class="glass-card p-6 text-center transition transform hover:scale-[1.05] fade-in-up" data-delay="300">
+            <h3 class="font-bold text-3xl">Custom</h3>
+            <p class="text-sm opacity-80 mt-1">Choose an amount that works for you</p>
+            <button class="mt-4 px-4 py-2 bg-midnight text-cream rounded-xl font-bold hover:bg-midnight/90 transition w-full" onclick="openDonateModal()">Custom Gift</button>
+          </div>
+        </div>
+        
+        <div class="mt-12 text-center fade-in-up" data-delay="400">
+            <h2 class="text-2xl font-semibold mb-4">Other Ways to Support</h2>
+            <div class="flex justify-center space-x-6">
+                <button onclick="openModal('volunteer-modal')" class="px-6 py-3 border border-midnight dark:border-peach/50 text-midnight dark:text-peach rounded-xl font-semibold hover:bg-peach/50 transition">Volunteer</button>
+                <a href="mailto:partners@yafoam.org" class="px-6 py-3 border border-midnight dark:border-peach/50 text-midnight dark:text-peach rounded-xl font-semibold hover:bg-peach/50 transition">Corporate Giving</a>
+                <button onclick="alert('Please contact us for planned giving details.')" class="px-6 py-3 border border-midnight dark:border-peach/50 text-midnight dark:text-peach rounded-xl font-semibold hover:bg-peach/50 transition">Planned Giving</button>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-page="gallery" class="page hidden" aria-labelledby="gallery-h">
+      <div class="py-12">
+        <h1 id="gallery-h" class="text-5xl font-display font-bold text-midnight dark:text-peach mb-6 fade-in-up">Gallery: Photos & Impact Videos</h1>
+        <p class="text-xl opacity-80 mb-10 dark:text-cream/90 fade-in-up" data-delay="100">Witness the impact of your support. Photos and videos from our programs, events, and powerful impact stories. Click to enlarge photos or watch videos.</p>
+
+        <h2 class="text-3xl font-display font-bold text-midnight dark:text-peach mb-6 fade-in-up">Program Photo Highlights</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="gallery-item rounded-xl overflow-hidden shadow-md transition hover:scale-[1.02] cursor-pointer fade-in-up" tabindex="0" data-large="https://images.pexels.com/photos/1769352/pexels-photo-1769352.jpeg" data-caption="Leadership workshop: teamwork exercise">
+            <img src="https://images.pexels.com/photos/1769352/pexels-photo-1769352.jpeg" alt="Leadership workshop" class="w-full h-48 object-cover" loading="lazy">
+          </div>
+          <div class="gallery-item rounded-xl overflow-hidden shadow-md transition hover:scale-[1.02] cursor-pointer fade-in-up" data-delay="100" tabindex="0" data-large="https://images.pexels.com/photos/1005023/pexels-photo-1005023.jpeg" data-caption="Community event: outdoor activities">
+            <img src="https://images.pexels.com/photos/1005023/pexels-photo-1005023.jpeg" alt="Community event" class="w-full h-48 object-cover" loading="lazy">
+          </div>
+          <div class="gallery-item rounded-xl overflow-hidden shadow-md transition hover:scale-[1.02] cursor-pointer fade-in-up" data-delay="200" tabindex="0" data-large="https://images.pexels.com/photos/210647/pexels-photo-210647.jpeg" data-caption="Family day: shared meal">
+            <img src="https://images.pexels.com/photos/210647/pexels-photo-210647.jpeg" alt="Family day" class="w-full h-48 object-cover" loading="lazy">
+          </div>
+          <div class="gallery-item rounded-xl overflow-hidden shadow-md transition hover:scale-[1.02] cursor-pointer fade-in-up" data-delay="300" tabindex="0" data-large="https://images.pexels.com/photos/207983/pexels-photo-207983.jpeg" data-caption="Volunteers packing food hampers">
+            <img src="https://images.pexels.com/photos/207983/pexels-photo-207983.jpeg" alt="Volunteers" class="w-full h-48 object-cover" loading="lazy">
+          </div>
+          <div class="gallery-item rounded-xl overflow-hidden shadow-md transition hover:scale-[1.02] cursor-pointer fade-in-up" data-delay="400" tabindex="0" data-large="https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg" data-caption="Digital Media Lab training session">
+            <img src="https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg" alt="Digital Media Lab" class="w-full h-48 object-cover" loading="lazy">
+          </div>
+          <div class="gallery-item rounded-xl overflow-hidden shadow-md transition hover:scale-[1.02] cursor-pointer fade-in-up" data-delay="500" tabindex="0" data-large="https://images.pexels.com/photos/1556950/pexels-photo-1556950.jpeg" data-caption="Parenting Group discussion">
+            <img src="https://images.pexels.com/photos/1556950/pexels-photo-1556950.jpeg" alt="Parenting Group" class="w-full h-48 object-cover" loading="lazy">
+          </div>
+          <div class="gallery-item rounded-xl overflow-hidden shadow-md transition hover:scale-[1.02] cursor-pointer fade-in-up" data-delay="600" tabindex="0" data-large="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg" data-caption="Team Building Exercise">
+            <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg" alt="Team Building" class="w-full h-48 object-cover" loading="lazy">
+          </div>
+          <div class="gallery-item rounded-xl overflow-hidden shadow-md transition hover:scale-[1.02] cursor-pointer fade-in-up" data-delay="700" tabindex="0" data-large="https://images.pexels.com/photos/3760855/pexels-photo-3760855.jpeg" data-caption="Graduation Ceremony">
+            <img src="https://images.pexels.com/photos/3760855/pexels-photo-3760855.jpeg" alt="Graduation" class="w-full h-48 object-cover" loading="lazy">
+          </div>
+        </div>
+        
+        <h2 class="text-3xl font-display font-bold text-midnight dark:text-peach mt-12 mb-6 fade-in-up">Impact Video Library</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="glass-card p-4 fade-in-up">
+            <iframe class="w-full h-64 rounded-xl shadow-md" src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Impact Story: Summer Horizons (Placeholder)"></iframe>
+            <h3 class="font-semibold mt-3">Summer Horizons: A Success Story</h3>
+            <p class="text-sm opacity-80">Video detailing the experience of three youth in our flagship program.</p>
+          </div>
+          <div class="glass-card p-4 fade-in-up" data-delay="100">
+            <iframe class="w-full h-64 rounded-xl shadow-md" src="https://www.youtube.com/embed/oHg5SJYRHA0?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="YAFOAM Mission Overview (Placeholder)"></iframe>
+            <h3 class="font-semibold mt-3">YAFOAM: Our Mission in Motion</h3>
+            <p class="text-sm opacity-80">A short overview of our organizational strategy and community mandate.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-page="resources" class="page hidden" aria-labelledby="resources-h">
+      <div class="py-12">
+        <h1 id="resources-h" class="text-5xl font-display font-bold text-midnight dark:text-peach mb-6 fade-in-up">Resources, Guides, and Forms</h1>
+        <p class="text-xl opacity-80 mb-10 dark:text-cream/90 fade-in-up" data-delay="100">Downloadable forms, community guides, and essential information to empower you on your journey.</p>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          
+          <div class="glass-card p-6 fade-in-up">
+            <h2 class="text-2xl font-semibold mb-3">Downloadable Forms</h2>
+            <ul class="space-y-3">
+              <li><a href="#" class="flex items-center text-midnight dark:text-peach hover:underline"><i data-feather="file-text" class="w-5 h-5 mr-2"></i> Youth Program Application (PDF)</a></li>
+              <li><a href="#" class="flex items-center text-midnight dark:text-peach hover:underline"><i data-feather="file-text" class="w-5 h-5 mr-2"></i> Volunteer Intake Form (PDF)</a></li>
+              <li><a href="#" class="flex items-center text-midnight dark:text-peach hover:underline"><i data-feather="file-text" class="w-5 h-5 mr-2"></i> Family Support Referral (PDF)</a></li>
+            </ul>
+          </div>
+          
+          <div class="glass-card p-6 fade-in-up" data-delay="100">
+            <h2 class="text-2xl font-semibold mb-3">Community Guides</h2>
+            <ul class="space-y-3">
+              <li><a href="#" class="flex items-center text-midnight dark:text-peach hover:underline"><i data-feather="book" class="w-5 h-5 mr-2"></i> Navigating the Local School System</a></li>
+              <li><a href="#" class="flex items-center text-midnight dark:text-peach hover:underline"><i data-feather="book" class="w-5 h-5 mr-2"></i> Job Search & Resume Tips for Youth</a></li>
+              <li><a href="#" class="flex items-center text-midnight dark:text-peach hover:underline"><i data-feather="book" class="w-5 h-5 mr-2"></i> Mental Wellness Quick Reference</a></li>
+            </ul>
+          </div>
+
+          <div class="glass-card p-6 fade-in-up" data-delay="200">
+            <h2 class="text-2xl font-semibold mb-3">FAQ & Help</h2>
+            <ul class="space-y-3">
+              <li><a href="#legal" data-link class="flex items-center text-midnight dark:text-peach hover:underline"><i data-feather="help-circle" class="w-5 h-5 mr-2"></i> Frequently Asked Questions</a></li>
+              <li><a href="#contact" data-link class="flex items-center text-midnight dark:text-peach hover:underline"><i data-feather="mail" class="w-5 h-5 mr-2"></i> General Contact Inquiry</a></li>
+              <li><a href="#" onclick="alert('Our privacy policy ensures all client data is secure and confidential.')" class="flex items-center text-midnight dark:text-peach hover:underline"><i data-feather="lock" class="w-5 h-5 mr-2"></i> Data Privacy Statement</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-page="contact" class="page hidden" aria-labelledby="contact-h">
+      <div class="py-12">
+        <h1 id="contact-h" class="text-5xl font-display font-bold text-midnight dark:text-peach mb-6 fade-in-up">Contact Us & Our Location</h1>
+        <p class="text-xl opacity-80 mb-10 dark:text-cream/90 fade-in-up" data-delay="100">Reach out — we respond within 24–48 hours for general inquiries. For urgent support, please use the links on the Get Support page. :contentReference[oaicite:24]</p>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          
+          <form id="contact-form" class="p-8 glass-card fade-in-up" onsubmit="submitContactForm(event)">
+            <h3 class="font-bold text-2xl mb-4 text-midnight dark:text-peach">Send a Message</h3>
+            <div class="space-y-4">
+              <input name="name" placeholder="Name" class="w-full p-3 rounded-lg border border-peach/50 bg-cream/70 dark:bg-darkmode-bg/50" required>
+              <input name="email" type="email" placeholder="Email" class="w-full p-3 rounded-lg border border-peach/50 bg-cream/70 dark:bg-darkmode-bg/50" required>
+              <input name="phone" placeholder="Phone (Optional)" class="w-full p-3 rounded-lg border border-peach/50 bg-cream/70 dark:bg-darkmode-bg/50">
+              <textarea name="message" placeholder="Your message..." class="w-full p-3 rounded-lg border border-peach/50 bg-cream/70 dark:bg-darkmode-bg/50" rows="6" required></textarea>
+              <div id="contact-status" class="text-sm text-green-700 dark:text-green-300 font-semibold"></div>
+              <button class="px-6 py-3 bg-midnight text-cream rounded-xl font-bold hover:bg-midnight/90 transition w-full">Send Message <i data-feather="send" class="w-4 h-4 inline-block ml-2"></i></button>
+            </div>
+          </form>
+
+          <div class="p-8 glass-card fade-in-up" data-delay="200">
+            <h3 class="font-bold text-2xl mb-4 text-midnight dark:text-peach">Contact Details & Location</h3>
+            <p class="text-lg font-semibold mb-4">Youth & Families on a Mission</p>
+            <div class="space-y-3 opacity-90">
+              <p class="flex items-start"><i data-feather="map-pin" class="w-5 h-5 mr-3 text-peach flex-shrink-0"></i> 101 West Drive, Unit 2, Brampton, ON L6T 2J6</p>
+              <p class="flex items-start"><i data-feather="mail" class="w-5 h-5 mr-3 text-peach flex-shrink-0"></i> Email: <a href="mailto:hello@youthandfamilyonamission.com" class="underline">hello@youthandfamilyonamission.com</a></p>
+              <p class="flex items-start"><i data-feather="phone" class="w-5 h-5 mr-3 text-peach flex-shrink-0"></i> Phone: (555) 555-5555</p>
+            </div>
+
+            <div class="mt-6 w-full h-64 bg-gray-200 dark:bg-midnight/50 rounded-xl flex items-center justify-center text-gray-600 dark:text-cream/70 shadow-inner">
+              <i data-feather="map" class="w-8 h-8 mr-2"></i> Google Maps Embed Placeholder
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-page="legal" class="page hidden" aria-labelledby="legal-h">
+      <div class="py-12">
+        <h1 id="legal-h" class="text-5xl font-display font-bold text-midnight dark:text-peach mb-6 fade-in-up">Legal & Governance Policies</h1>
+        <p class="text-xl opacity-80 mb-10 dark:text-cream/90 fade-in-up" data-delay="100">Commitment to ethical governance, financial transparency, and client privacy.</p>
+
+        <div class="space-y-8">
+          
+          <details class="glass-card p-6 fade-in-up">
+            <summary class="cursor-pointer font-bold text-2xl text-midnight dark:text-peach">Privacy Policy</summary>
+            <div class="mt-3 opacity-80 border-t pt-3">
+              <p class="font-semibold mb-2">Effective Date: October 1, 2024</p>
+              <p>YAFOAM is committed to protecting your privacy. This policy outlines how we collect, use, disclose, and protect the personal information you provide. We only collect information necessary for program enrollment, service delivery, and legal reporting requirements. All client data is kept strictly confidential and is secured using industry-standard encryption protocols. We do not share personal client data with third parties without explicit written consent, except where required by law.</p>
+            </div>
+          </details>
+
+          <details class="glass-card p-6 fade-in-up" data-delay="100">
+            <summary class="cursor-pointer font-bold text-2xl text-midnight dark:text-peach">Terms & Conditions of Use</summary>
+            <div class="mt-3 opacity-80 border-t pt-3">
+              <p class="font-semibold mb-2">Last Updated: September 15, 2024</p>
+              <p>By using this website and engaging with YAFOAM's online resources, you agree to these terms. All content is for informational purposes only. The YAFOAM logo and all digital assets are the intellectual property of Youth & Families on a Mission. Unauthorized use is prohibited. Service terms for programs are provided separately upon intake.</p>
+            </div>
+          </details>
+          
+          <details class="glass-card p-6 fade-in-up" data-delay="200">
+            <summary class="cursor-pointer font-bold text-2xl text-midnight dark:text-peach">Board Governance & Bylaws</summary>
+            <div class="mt-3 opacity-80 border-t pt-3">
+              <p class="font-semibold mb-2">Governance Framework</p>
+              <p>YAFOAM operates under a Policy Governance model. Our Board of Directors is responsible for setting the organization's mission and monitoring performance against Executive Limitations. Board meeting minutes and financial statements are available upon formal request, in compliance with our commitment to public accountability.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+
+  <div id="lightbox" class="modal" aria-hidden="true">
+    <div class="modal-card p-6 w-11/12 max-w-4xl">
+      <div class="flex justify-between items-center mb-4">
+        <h3 id="lb-title" class="font-semibold text-xl">Photo Gallery</h3>
+        <button id="lb-close" class="px-3 py-1 border rounded-xl hover:bg-peach/50 transition">Close <i data-feather="x" class="w-4 h-4 inline-block ml-1"></i></button>
+      </div>
+      <div id="lb-body">
+        <img id="lb-img" src="" alt="" class="w-full rounded-lg max-h-[80vh] object-contain mx-auto" />
+        <p id="lb-caption" class="text-sm opacity-80 mt-3 text-center"></p>
+      </div>
+    </div>
+  </div>
+
+  <div id="donate-modal" class="modal" aria-hidden="true">
+    <div class="modal-card p-6 w-11/12 max-w-lg">
+      <div class="flex justify-between items-start mb-4">
+        <h3 class="font-semibold text-2xl text-midnight dark:text-peach">Secure Donation (Demo)</h3>
+        <button id="donation-close" class="px-3 py-1 border rounded-xl hover:bg-peach/50 transition">Close <i data-feather="x" class="w-4 h-4 inline-block ml-1"></i></button>
+      </div>
+      <div class="mt-3">
+        <p class="text-gray-700 dark:text-cream/90 mb-4">This is a demo. In a real application, this modal would securely integrate with Stripe/PayPal/CanadaHelps.</p>
+        <div class="space-y-4">
+          <input id="donation-custom" type="number" placeholder="Enter Amount (CAD)" class="p-3 rounded-lg border border-peach/50 w-full bg-cream/70 dark:bg-darkmode-bg/50" min="5" required />
+          <input id="donation-email" type="email" placeholder="Email for receipt" class="p-3 rounded-lg border border-peach/50 w-full bg-cream/70 dark:bg-darkmode-bg/50" required />
+          <button id="donation-submit" class="px-6 py-3 bg-peach text-midnight rounded-xl font-bold hover:bg-[#F0B43A] transition w-full">Complete Donation (Demo)</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="volunteer-modal" class="modal" aria-hidden="true">
+    <div class="modal-card p-6 w-11/12 max-w-lg">
+      <div class="flex justify-between items-start mb-4">
+        <h3 class="font-semibold text-2xl text-midnight dark:text-peach">Volunteer Application (Demo)</h3>
+        <button onclick="closeModal('volunteer-modal')" class="px-3 py-1 border rounded-xl hover:bg-peach/50 transition">Close <i data-feather="x" class="w-4 h-4 inline-block ml-1"></i></button>
+      </div>
+      <form onsubmit="submitVolunteerForm(event)">
+        <p class="text-gray-700 dark:text-cream/90 mb-4">Thank you for your interest! Please fill out this quick form and we'll be in touch.</p>
+        <div class="space-y-4">
+          <input name="name" placeholder="Full Name" class="w-full p-3 rounded-lg border border-peach/50 bg-cream/70 dark:bg-darkmode-bg/50" required>
+          <input name="email" type="email" placeholder="Email" class="w-full p-3 rounded-lg border border-peach/50 bg-cream/70 dark:bg-darkmode-bg/50" required>
+          <select name="area" class="w-full p-3 rounded-lg border border-peach/50 bg-cream/70 dark:bg-darkmode-bg/50">
+            <option>Area of Interest: Mentorship</option>
+            <option>Events & Logistics</option>
+            <option>Administrative Support</option>
+            <option>Digital Media Lab</option>
+          </select>
+          <div id="volunteer-status" class="text-sm text-green-700 dark:text-green-300 font-semibold"></div>
+          <button class="px-6 py-3 bg-midnight text-cream rounded-xl font-bold hover:bg-midnight/90 transition w-full">Submit Volunteer Interest</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <footer role="contentinfo" aria-labelledby="footer-heading">
+    <div class="footer-grid">
+      <div>
+        <h4 id="footer-heading">About YAFOAM</h4>
+        <p style="color:rgba(230,238,246,0.9);font-size:14px; line-height: 1.5;">We empower youth and support families through localized programs, mentorship and holistic supports. We are a registered Canadian Charity.</p>
+        <a href="#mission" data-link>Our Story & History</a>
+        <a href="#mission" data-link>Mission & Values</a>
+        <a href="#leadership" data-link>Leadership & Board</a>
+        <button onclick="openModal('volunteer-modal')" class="mt-4 px-3 py-1 border border-peach text-peach rounded-xl font-semibold hover:bg-peach/10 transition w-full text-left">Volunteer Today</button>
+      </div>
+
+      <div>
+        <h4>Core Programs</h4>
+        <a href="#programs" data-link>Summer Horizons (Flagship)</a>
+        <a href="#programs" data-link>Leadership Labs</a>
+        <a href="#programs" data-link>Creative & Digital Media</a>
+        <a href="#programs" data-link>Employment Pathways</a>
+        <a href="#programs" data-link>Full Catalog</a>
+      </div>
+
+      <div>
+        <h4>Youth Initiatives</h4>
+        <a href="#youth-empowerment" data-link>Youth Mentorship</a>
+        <a href="#youth-empowerment" data-link>Mental Health Hub</a>
+        <a href="#youth-empowerment" data-link>At-Risk Support</a>
+        <a href="#youth-empowerment" data-link>Wellness Circles</a>
+        <a href="#events" data-link>Youth Events</a>
+      </div>
+
+      <div>
+        <h4>Family & Community</h4>
+        <a href="#family-services" data-link>FreshStart Newcomer Services</a>
+        <a href="#family-services" data-link>Family Harmony Consultations</a>
+        <a href="#family-services" data-link>Parenting Groups</a>
+        <a href="#community-engagement" data-link>Community Partners</a>
+        <a href="#family-services" data-link>Food Pantry & Nutrition</a>
+      </div>
+
+      <div>
+        <h4>Resources & Legal</h4>
+        <a href="#resources" data-link>Guides & Forms</a>
+        <a href="#resources" data-link>Media & Press Kit</a>
+        <a href="#legal" data-link>Privacy Policy</a>
+        <a href="#legal" data-link>Terms & Conditions</a>
+        <a href="#resources" data-link>FAQ & Help Center</a>
+      </div>
+
+      <div>
+        <h4>Contact & Connect</h4>
+        <div style="color:rgba(230,238,246,0.9);font-size:14px; line-height: 1.5;">101 West Drive, Unit 2, Brampton, ON<br/>Email: <a href="mailto:hello@youthandfamilyonamission.com" class="underline text-peach">hello@yafoam.org</a><br/>Phone: (555) 555-5555</div>
+        
+        <div class="mt-4 social-icons">
+          <a href="https://www.linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn"><i data-feather="linkedin" class="w-5 h-5"></i></a>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><i data-feather="instagram" class="w-5 h-5"></i></a>
+          <a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><i data-feather="facebook" class="w-5 h-5"></i></a>
+          <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter/X"><i data-feather="twitter" class="w-5 h-5"></i></a>
+          <a href="https://www.youtube.com" target="_blank" rel="noopener" aria-label="YouTube"><i data-feather="youtube" class="w-5 h-5"></i></a>
+        </div>
+        
+        <div class="mt-6">
+          <h5 class="text-sm font-semibold mb-2 text-peach">Newsletter Signup</h5>
+          <form id="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed (demo)');">
+            <input type="email" placeholder="Email address" required class="p-2 rounded-lg w-full mb-2 text-midnight" />
+            <button class="px-3 py-2 rounded-lg bg-peach text-midnight font-semibold w-full hover:bg-[#F0B43A] transition">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div style="display:flex;gap:15px;align-items:center">
+        <div class="w-16 h-16 bg-cream rounded-full flex items-center justify-center shadow-lg">
+            <i data-feather="award" class="w-8 h-8 text-midnight"></i>
+        </div>
+        <div style="font-size:14px;color:rgba(230,238,246,0.8); max-width: 300px;">
+          **NGO Grade Professional Layout** • Accredited by Trust Council • Charity registration **123456789RR0001**
+        </div>
+      </div>
+
+      <div style="text-align:right;color:rgba(230,238,246,0.8); font-size:14px;">
+        <div>© <span id="year"></span> Youth & Families on a Mission</div>
+        <div><a href="#legal" data-link>Privacy</a> • <a href="#legal" data-link>Terms</a> • <a href="#accessibility" data-link>Accessibility</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="help" class="fixed right-6 bottom-20 bg-peach text-midnight rounded-full p-4 shadow-xl z-60 hover:scale-[1.05] transition" aria-label="Chat with us on WhatsApp" title="Chat on WhatsApp">
+    <i data-feather="message-circle" class="w-6 h-6"></i>
+  </button>
+  
+  <button id="back2top" class="fixed right-6 bottom-6 bg-midnight text-cream rounded-full p-3 shadow-xl z-110 hidden hover:scale-[1.05] transition" aria-label="Back to top" title="Back to Top">
+    <i data-feather="arrow-up" class="w-6 h-6"></i>
+  </button>
+
+  <script>
+    // Utility functions
+    const $ = (s, ctx=document)=> ctx.querySelector(s);
+    const $$ = (s, ctx=document)=> Array.from(ctx.querySelectorAll(s));
+    const pages = $$('[data-page]');
+    const pageMap = pages.reduce((m,e)=>{ m[e.dataset.page]=e; return m; }, {});
+    document.getElementById('year').textContent = new Date().getFullYear();
+    feather.replace(); // Initialize Feather icons
+
+    // --- 1. Hybrid Mega Menu Logic ---
+    function setupMegaMenu(){
+      const navItems = $$('.nav-item');
+      navItems.forEach(item=>{
+        const key = item.dataset.key;
+        const panel = document.querySelector(`.mega-panel[data-panel="${key}"]`);
+        if(!panel) return;
+        
+        // Desktop Hover (Debounced to prevent flickering)
+        item.addEventListener('mouseenter', ()=> { if(window.innerWidth>=768) openPanel(panel); });
+        item.addEventListener('mouseleave', ()=> { 
+          if(window.innerWidth>=768) {
+            setTimeout(()=>{ if(!item.matches(':hover') && !panel.matches(':hover')) closePanel(panel); }, 150);
+          }
+        });
+        panel.addEventListener('mouseleave', ()=> { 
+          if(window.innerWidth>=768) {
+            closePanel(panel);
+          }
+        });
+
+        // Mobile Click Toggle
+        const link = item.querySelector('a');
+        link.addEventListener('click', (e)=> {
+          if(window.innerWidth < 768){
+            e.preventDefault();
+            const isOpen = panel.classList.contains('open');
+            // Close all other panels first
+            $$('.mega-panel.open').forEach(p => { if(p !== panel) closePanel(p); });
+            isOpen ? closePanel(panel) : openPanel(panel);
+          }
+        });
+
+        // Keyboard accessibility
+        link.addEventListener('focus', ()=> { if(window.innerWidth>=768) openPanel(panel); });
+        link.addEventListener('blur', ()=> { 
+          // Delay closing for tab navigation through the panel
+          if(window.innerWidth>=768) {
+             setTimeout(()=>{ 
+                const isFocusInPanel = panel.contains(document.activeElement);
+                if(!isFocusInPanel) closePanel(panel); 
+            }, 50); 
+          }
+        });
+        
+        // Close on outside click (for mobile and to catch edge cases)
+        document.addEventListener('click', (e)=>{
+            if(window.innerWidth >= 768) return; // Desktop uses hover/debounce
+            if(panel.classList.contains('open') && !panel.contains(e.target) && !item.contains(e.target)){
+                closePanel(panel);
+            }
+        });
+      });
+    }
+
+    function openPanel(p){ 
+      $$('.mega-panel.open').forEach(p => closePanel(p)); // Close others
+      p.classList.add('open'); 
+      p.setAttribute('aria-hidden','false'); 
+    }
+    function closePanel(p){ 
+      p.classList.remove('open'); 
+      p.setAttribute('aria-hidden','true'); 
+    }
+
+    // Mobile panel toggle
+    $('#mobile-toggle').addEventListener('click', ()=> $('#mobile-panel').classList.toggle('hidden'));
+
+    // --- 2. Single-Page Routing ---
+    function showPage(slug){ 
+      if(!slug) slug='home'; 
+      if(!pageMap[slug]) slug='home'; 
+      
+      // Page transition animation
+      pages.forEach(p=>{
+        p.classList.add('hidden');
+        p.classList.remove('fade-in-up', 'active'); // Reset animation state
+      }); 
+      
+      const activePage = pageMap[slug];
+      activePage.classList.remove('hidden'); 
+      // Re-trigger animation
+      setTimeout(() => {
+        activePage.classList.add('fade-in-up', 'active');
+      }, 50); 
+      
+      // Update URL hash
+      history.replaceState(null,'','#'+slug); 
+      
+      // Focus on heading for accessibility
+      const h=activePage.querySelector('h1,h2'); 
+      if(h){h.setAttribute('tabindex','-1'); h.focus();} 
+      
+      updateHeroVideos(); // Manage video playback
+
+      // Close mobile menu
+      if(window.innerWidth<768) $('#mobile-panel').classList.add('hidden');
+      
+      window.scrollTo({ top: 0, behavior: 'smooth' }); // Smooth scroll to top
+    }
+
+    $$('[data-link]').forEach(a=> a.addEventListener('click',(e)=>{ 
+      e.preventDefault(); 
+      const href = a.getAttribute('href')||''; 
+      const slug = href.replace(/^#/,'') || 'home'; 
+      showPage(slug); 
+    }));
+    
+    // Initial load
+    window.addEventListener('load', ()=>{ 
+      setupMegaMenu(); 
+      const start = location.hash?location.hash.replace(/^#/,''):'home'; 
+      showPage(start); 
+      startCounters(); 
+      initGallery(); 
+      initTestimonialSlider();
+      setupScrollAnimations();
+    });
+
+    // --- 3. Hero Video Play Policy ---
+    function updateHeroVideos(){ 
+      $$('video').forEach(v=>{ 
+        try{ 
+          // Only play video in active, visible section on desktop
+          const isPageActive = !v.closest('.page')?.classList.contains('hidden');
+          if(window.innerWidth>=640 && isPageActive) {
+            v.play().catch(()=>{}); // Autoplay might be restricted, but try
+          } else {
+            v.pause();
+          }
+        }catch(e){} 
+      }); 
+    }
+    window.addEventListener('resize', updateHeroVideos);
+
+    // --- 4. Animated Counters on Scroll ---
+    function startCounters(){
+      const els = $$('[data-counter]');
+      const io = new IntersectionObserver(entries=>{ entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          const el = entry.target; animateCounter(el); io.unobserve(el);
+        }
+      }); }, {threshold:0.4});
+      els.forEach(e=> io.observe(e));
+    }
+    function animateCounter(el){
+      const to = parseInt(el.dataset.counter,10)||0;
+      let start = 0; const dur=2000; const t0 = performance.now();
+      function frame(now){
+        const p = Math.min(1,(now-t0)/dur);
+        el.textContent = Math.floor(easeOut(p)*to).toLocaleString();
+        if(p<1) requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    }
+    function easeOut(t){ return 1 - Math.pow(1 - t, 4); } // Custom smoother ease out
+
+    // --- 5. Read More Toggle ---
+    $$('[data-toggle]').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const id = btn.dataset.toggle; 
+        const excerpt = document.getElementById(id+'-excerpt'); 
+        const fade = document.getElementById(id+'-fade');
+        if(!excerpt) return;
+        
+        const expanded = excerpt.classList.toggle('expanded');
+        if(expanded){ 
+          excerpt.style.maxHeight='none'; 
+          if(fade) fade.style.display='none'; 
+          btn.innerHTML='Show Less <i data-feather="chevron-up" class="w-4 h-4 inline-block ml-1"></i>'; 
+        } else { 
+          excerpt.style.maxHeight='8rem'; 
+          if(fade) fade.style.display='flex'; 
+          btn.innerHTML='Read more <i data-feather="chevron-down" class="w-4 h-4 inline-block ml-1"></i>'; 
+        }
+        feather.replace(); // Re-initialize icons
+      });
+    });
+
+    // --- 6. Gallery Lightbox ---
+    const lightbox = $('#lightbox'), lbImg = $('#lb-img'), lbCap = $('#lb-caption');
+    function initGallery(){
+      $$('.gallery-item').forEach(item=>{
+        item.addEventListener('click', ()=> openLightbox(item));
+        item.addEventListener('keydown', (e)=> { if(e.key==='Enter' || e.key===' ') openLightbox(item); });
+      });
+    }
+    function openLightbox(item){
+      lbImg.src = item.dataset.large || item.querySelector('img')?.src;
+      lbImg.alt = item.dataset.caption || '';
+      lbCap.textContent = item.dataset.caption || '';
+      lightbox.classList.add('open'); 
+      lightbox.setAttribute('aria-hidden','false');
+      $('#lb-close').focus();
+    }
+    $('#lb-close').addEventListener('click', ()=> { closeModal('lightbox'); });
+
+    // --- 7. Modal Controls ---
+    function openModal(id){
+      const modal = $(`#${id}`);
+      if(modal){
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden','false');
+        modal.querySelector('button[aria-label="Close"], button[type="submit"], input[type="text"]').focus();
+      }
+    }
+    function closeModal(id){
+      const modal = $(`#${id}`);
+      if(modal){
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden','true');
+      }
+    }
+
+    // Donate Modal Specifics
+    function openDonateModal(amount){
+      $('#donation-custom').value = amount || '';
+      openModal('donate-modal');
+    }
+    $('#donation-close').addEventListener('click', ()=> { closeModal('donate-modal'); });
+    $('#donation-submit').addEventListener('click', ()=> {
+      const amt = Number($('#donation-custom').value) || 0; 
+      const email = $('#donation-email').value;
+      if(!amt || !email){ alert('Please enter a valid amount and email.'); return; }
+      alert('Donation demo success! Amount: $'+amt+'. Thank you for investing in YAFOAM.');
+      closeModal('donate-modal');
+    });
+
+    // --- 8. Form Submission Demos ---
+    function submitSupportForm(e){
+      e.preventDefault();
+      const status = $('#support-status');
+      status.textContent='Submitting…';
+      setTimeout(()=>{ status.textContent='✅ Request received — our team will contact you within 24–48 hrs.'; e.target.reset(); },1500);
+      return false;
+    }
+    function submitContactForm(e){
+      e.preventDefault();
+      const status = $('#contact-status');
+      status.textContent='Sending…';
+      setTimeout(()=>{ status.textContent='✅ Message sent. Thank you for reaching out.'; e.target.reset(); },1500);
+      return false;
+    }
+    function submitVolunteerForm(e){
+      e.preventDefault();
+      const status = $('#volunteer-status');
+      status.textContent='Sending…';
+      setTimeout(()=>{ 
+          status.textContent='✅ Volunteer interest received. We will be in touch soon!'; 
+          e.target.reset(); 
+          closeModal('volunteer-modal');
+      },1500);
+      return false;
+    }
+
+    // --- 9. Testimonial Slider ---
+    let currentSlide = 0;
+    const slides = $$('.testimonial-slide');
+    function initTestimonialSlider(){
+        if(slides.length === 0) return;
+        slides[0].classList.add('active');
+        updateSlider();
+        // Auto-advance
+        setInterval(nextTestimonial, 7000);
+    }
+    function updateSlider(){
+        const sliderContainer = $('#testimonial-slider');
+        if(!sliderContainer) return;
+        const offset = -currentSlide * 100;
+        sliderContainer.style.transform = `translateX(${offset}%)`;
+        
+        slides.forEach((slide, index) => {
+            if (index === currentSlide) {
+                slide.classList.add('active');
+                slide.setAttribute('aria-hidden', 'false');
+            } else {
+                slide.classList.remove('active');
+                slide.setAttribute('aria-hidden', 'true');
+            }
+        });
+    }
+    function nextTestimonial(){
+        currentSlide = (currentSlide + 1) % slides.length;
+        updateSlider();
+    }
+    function prevTestimonial(){
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        updateSlider();
+    }
+    
+    // --- 10. Scroll-Triggered Animations ---
+    function setupScrollAnimations(){
+      const elements = $$('.fade-in-up');
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const delay = parseInt(entry.target.dataset.delay || 0);
+            setTimeout(() => {
+              entry.target.classList.add('active');
+            }, delay);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 }); // Trigger when 15% of element is visible
+      
+      elements.forEach(el => observer.observe(el));
+    }
+
+    // --- 11. Floating Buttons & Back to Top ---
+    // Floating help open WhatsApp demo
+    $('#help').addEventListener('click', ()=> { window.open('https://wa.me/15555555555','_blank'); });
+
+    // Back to top visibility
+    window.addEventListener('scroll', ()=> {
+      if(window.scrollY>600) $('#back2top').classList.remove('hidden'); else $('#back2top').classList.add('hidden');
+    });
+    $('#back2top').addEventListener('click', ()=> window.scrollTo({top:0,behavior:'smooth'}));
+
+    // --- 12. Dark Mode Toggle ---
+    const darkToggle = $('#dark-toggle');
+    function toggleDarkMode(){
+        const isDark = document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        darkToggle.setAttribute('aria-pressed', isDark);
+        feather.replace(); // Update icons
+    }
+    darkToggle.addEventListener('click', toggleDarkMode);
+    
+    // Apply theme on load
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+      darkToggle.setAttribute('aria-pressed', 'true');
+    } else {
+      darkToggle.setAttribute('aria-pressed', 'false');
+    }
+
+    // --- 13. Accessibility / Keyboard Shortcuts ---
+    document.addEventListener('keydown', (e)=> { 
+        if(e.key==='Escape'){ 
+            $$('.modal.open').forEach(m=> closeModal(m.id)); 
+            $$('.mega-panel.open').forEach(p=> closePanel(p));
+        } 
+    });
+
+  </script>
+</body>
+</html>
