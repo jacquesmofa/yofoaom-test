@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --midnight: #0A1A3A;
+  --peach: #F6C9B0;
+  --gold: #D4A017;
+  --cream: #FFF8F0;
+  --darkmode-bg: #0d1117;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--cream);
+  color: var(--midnight);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body.dark {
+  background-color: var(--darkmode-bg);
+  color: var(--cream);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  line-height: 1.2;
+}
+
+.site-max {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .site-max {
+    padding: 0 1rem;
+  }
+}
+
+.glass-card {
+  background: rgba(255, 248, 240, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(10, 26, 58, 0.1);
+  transition: all 0.3s ease;
+}
+
+.dark .glass-card {
+  background: rgba(13, 17, 23, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(10, 26, 58, 0.15);
+}
+
+.dark .glass-card:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.btn-primary {
+  @apply px-6 py-2.5 bg-midnight dark:bg-peach text-cream dark:text-midnight font-semibold rounded-xl hover:bg-opacity-90 transition cursor-pointer inline-flex items-center justify-center whitespace-nowrap text-sm;
+}
+
+.btn-secondary {
+  @apply px-6 py-2.5 border-2 border-midnight dark:border-peach text-midnight dark:text-peach font-semibold rounded-xl hover:bg-midnight hover:text-cream dark:hover:bg-peach dark:hover:text-midnight transition cursor-pointer inline-flex items-center justify-center whitespace-nowrap text-sm;
+}
+
+.hero {
+  position: relative;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+}
+
+.hero .bg-clip {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.hero .bg-clip img,
+.hero .bg-clip video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.hero .overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.shadow-lux {
+  box-shadow: 0 8px 32px rgba(10, 26, 58, 0.12);
+}
+
+.dark .shadow-lux {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.stat-card {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+input, textarea, select {
+  transition: all 0.2s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(212, 160, 23, 0.1);
+}
+
+.dark input, .dark textarea, .dark select {
+  background-color: rgba(13, 17, 23, 0.8);
+  color: var(--cream);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
