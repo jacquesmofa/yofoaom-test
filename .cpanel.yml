@@ -1,0 +1,18 @@
+---
+deployment:
+  tasks:
+    # 1. Set the deployment path to your main web directory
+    - export DEPLOYPATH=/home/your-cpanel-username/public_html/
+
+    # 2. Install dependencies (Node.js/npm is available in the git environment)
+    - npm install
+
+    # 3. Create the production build (creates the 'build' folder)
+    - npm run build
+
+    # 4. Copy the *contents* of the new build folder to public_html
+    - /bin/cp -R build/* $DEPLOYPATH
+
+    # 5. Copy the .htaccess file (for React client-side routing)
+    # Note: You need to create this file locally in your project root!
+    - /bin/cp .htaccess $DEPLOYPATH
