@@ -1,18 +1,18 @@
 ---
 deployment:
   tasks:
-    # 1. Set the deployment path to your main web directory
-    - export DEPLOYPATH=/home/your-cpanel-username/public_html/
-
-    # 2. Install dependencies (Node.js/npm is available in the git environment)
+    # 1. Set the correct deployment path for your live domain
+    - export DEPLOYPATH=/home3/irineashu/public_html/website_7825feb0/
+    
+    # 2. Install Node dependencies
     - npm install
-
-    # 3. Create the production build (creates the 'build' folder)
-    - npm run build
-
-    # 4. Copy the *contents* of the new build folder to public_html
-    - /bin/cp -R build/* $DEPLOYPATH
-
-    # 5. Copy the .htaccess file (for React client-side routing)
-    # Note: You need to create this file locally in your project root!
+    
+    # 3. Create the production build (Vite/package.json dictates output folder, 
+    # but we assume it results in 'docs' based on your commit messages)
+    - npm run build 
+    
+    # 4. Copy the *contents* of the new 'docs' folder to the live site directory
+    - /bin/cp -R docs/* $DEPLOYPATH
+    
+    # 5. Copy .htaccess for React routing
     - /bin/cp .htaccess $DEPLOYPATH
