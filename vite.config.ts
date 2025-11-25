@@ -3,11 +3,11 @@ import react from "@vitejs/plugin-react-swc";
 import { resolve } from "node:path";
 import AutoImport from "unplugin-auto-import/vite";
 
-// --- FIX APPLIED HERE ---
-// If BASE_PATH is set (e.g., in a CI environment), use it.
-// Otherwise, we explicitly set the base path to the repository name for GitHub Pages.
-const base = process.env.BASE_PATH || "/yofoaom-test/"; 
-// ------------------------
+// --- CORRECTION FOR HOSTGATOR DEPLOYMENT ---
+// Setting base to './' (relative path) ensures that assets (CSS, JS) load correctly
+// when the 'docs' folder contents are copied to the root of your domain.
+const base = "./";
+// ------------------------------------------
 
 const isPreview = process.env.IS_PREVIEW ? true : false;
 
@@ -71,10 +71,10 @@ export default defineConfig({
       dts: true,
     }),
   ],
-  base, // This now uses the correct GitHub Pages path
+  base, // This now uses the corrected relative path: './'
   build: {
     sourcemap: true,
-    outDir: "docs", // This must match the folder you set in GitHub Pages
+    outDir: "docs", // This correctly matches the folder used in .cpanel.yml
   },
   resolve: {
     alias: {
