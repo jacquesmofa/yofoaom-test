@@ -3,8 +3,16 @@ import react from "@vitejs/plugin-react-swc";
 import { resolve } from "node:path";
 import AutoImport from "unplugin-auto-import/vite";
 
+<<<<<<< HEAD
 // 🛑 CRITICAL FIX: Base path must be '/' for custom domain on HostGator.
 const base = "/"; 
+=======
+// --- CORRECTION FOR HOSTGATOR DEPLOYMENT ---
+// Setting base to './' (relative path) ensures that assets (CSS, JS) load correctly
+// when the 'docs' folder contents are copied to the root of your domain.
+const base = "./";
+// ------------------------------------------
+>>>>>>> 8256d733ea1ab6fe0049631f2ed77085b76e2477
 
 const isPreview = process.env.IS_PREVIEW ? true : false;
 
@@ -68,10 +76,17 @@ export default defineConfig({
       dts: true,
     }),
   ],
+<<<<<<< HEAD
   base,
   build: {
     sourcemap: true,
     outDir: "dist", // ⬅️ CRITICAL FIX: Changed from "docs" to "dist"
+=======
+  base, // This now uses the corrected relative path: './'
+  build: {
+    sourcemap: true,
+    outDir: "docs", // This correctly matches the folder used in .cpanel.yml
+>>>>>>> 8256d733ea1ab6fe0049631f2ed77085b76e2477
   },
   resolve: {
     alias: {
