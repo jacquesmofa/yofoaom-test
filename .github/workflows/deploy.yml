@@ -1,0 +1,37 @@
+name: Deploy React App to HostGator
+
+on:
+  push:
+    branches:
+      - main # Change this to your main branch name if different
+
+jobs:
+  web-deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Use a recent stable Node version
+
+      - name: 📦 Install dependencies
+        run: npm install
+
+      - name: 🏗 Build Project
+        # Uses the corrected vite.config.ts to build to the 'dist' folder
+        run: npm run build 
+        
+      - name: 📂 Deploy to HostGator via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          # 🛑 CRITICAL FIX: Deploy the contents of the 'dist' folder
+          local-dir: ./dist/ 
+          # Target is the root of your domain's hosting folder
+          server-dir: ./
