@@ -1,0 +1,16 @@
+# Dependencies
+/node_modules
+/package-lock.json
+
+# Build output
+/dist
+/build
+
+# IDE/System Files
+.vscode
+.DS_Store
+*.log
+npm-debug.log*
+
+# Vite Specific
+.vite/
