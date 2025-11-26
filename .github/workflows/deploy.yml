@@ -25,17 +25,16 @@ jobs:
         # Uses the corrected vite.config.ts to build to the 'dist' folder
         run: npm run build 
         
-      - name: 📂 Deploy to HostGator via SFTP
+      - name: 📂 Deploy to HostGator via FTPS
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           
-          # 🛑 CRITICAL FIXES FOR HOSTGATOR CONNECTION:
-          # Use SFTP protocol and Port 22 (confirmed by HostGator)
-          protocol: sftp
-          port: 22
+          # 🛑 CRITICAL FIX: Switch to supported FTPS protocol and Port 21
+          protocol: ftps
+          port: 21
           
           # Deploy the contents of the 'dist' folder
           local-dir: ./dist/ 
