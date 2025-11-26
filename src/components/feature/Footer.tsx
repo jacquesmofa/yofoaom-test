@@ -73,7 +73,7 @@ export default function Footer() {
             <div className="text-xs opacity-80 mb-3">
               6850 Millcreek Drive<br />
               Mississauga, ON<br />
-              Email: <a href="mailto:hello@yafoam.org" className="underline text-peach cursor-pointer">hello@yafoam.org</a><br />
+              Email: <a href="mailto:youthandfamilyonamission@gmail.com" className="underline text-peach cursor-pointer">youthandfamilyonamission@gmail.com</a><br />
               Phone: <a href="tel:+14168575901" className="underline text-peach cursor-pointer">+1 (416) 857-5901</a>
             </div>
 

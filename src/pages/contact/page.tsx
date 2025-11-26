@@ -74,8 +74,8 @@ export default function ContactPage() {
                 <i className="ri-mail-line text-3xl text-peach"></i>
               </div>
               <h3 className="text-xl font-bold mb-2 text-midnight dark:text-white">Email</h3>
-              <a href="mailto:hello@yafoam.org" className="text-midnight/70 dark:text-white/70 hover:text-peach cursor-pointer">
-                hello@yafoam.org
+              <a href="mailto:youthandfamilyonamission@gmail.com" className="text-midnight/70 dark:text-white/70 hover:text-peach cursor-pointer">
+                youthandfamilyonamission@gmail.com
               </a>
             </div>
 

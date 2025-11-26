@@ -37,7 +37,7 @@ export default function ContactSection() {
               </div>
               <div>
                 <div className="font-semibold">Email Us</div>
-                <a href="mailto:hello@yafoam.org" className="text-sm opacity-80 hover:underline cursor-pointer">hello@yafoam.org</a>
+                <a href="mailto:youthandfamilyonamission@gmail.com" className="text-sm opacity-80 hover:underline cursor-pointer">youthandfamilyonamission@gmail.com</a>
               </div>
             </div>
 

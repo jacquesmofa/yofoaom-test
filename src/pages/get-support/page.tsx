@@ -459,8 +459,8 @@ export default function GetSupportPage() {
               <p className="text-gray-700 dark:text-cream/90 mb-4 text-sm">
                 Send us a detailed message
               </p>
-              <a href="mailto:hello@yafoam.org" className="text-peach hover:underline font-semibold">
-                hello@yafoam.org
+              <a href="mailto:youthandfamilyonamission@gmail.com" className="text-peach hover:underline font-semibold">
+                youthandfamilyonamission@gmail.com
               </a>
             </div>
           </div>

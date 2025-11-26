@@ -71,7 +71,7 @@ export default function Footer() {
             <div className="text-sm opacity-80 mb-4">
               101 West Drive, Unit 2<br />
               Brampton, ON L6T 2J6<br />
-              Email: <a href="mailto:hello@youthandfamilyonamission.com" className="underline text-peach cursor-pointer">hello@yafoam.org</a><br />
+              Email: <a href="mailto:youthandfamilyonamission@gmail.com" className="underline text-peach cursor-pointer">youthandfamilyonamission@gmail.com</a><br />
               Phone: (555) 555-5555
             </div>
 
