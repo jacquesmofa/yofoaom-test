@@ -40,6 +40,6 @@ jobs:
           
           # 💥 FINAL ATTEMPT: We are only using the unique folder name.
           # This is the last remaining way to stop the action from creating subfolders.
-          server-dir: website_7825feb0/
+          server-dir: /
           
           state-name: .ftp-deploy-sync-state.json
