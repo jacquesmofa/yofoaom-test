@@ -38,8 +38,8 @@ jobs:
           # Deploy the contents of the local 'dist' folder
           local-dir: ./dist/ 
           
-          # 💥 FINAL, ABSOLUTE PATH FIX: This is the full path from the server's root.
-          # This should force the files into the correct folder and stop the nesting.
-          server-dir: /home3/irineashu/public_html/website_7825feb0/
+          # 💥 FINAL ATTEMPT: We are only using the unique folder name.
+          # This is the last remaining way to stop the action from creating subfolders.
+          server-dir: website_7825feb0/
           
           state-name: .ftp-deploy-sync-state.json
