@@ -123,11 +123,11 @@ export default function FamilyServicesPage() {
                   <div className="text-xs opacity-80">Satisfaction Rate</div>
                 </div>
                 <div className="glass-card p-4 rounded-xl">
-                  <div className="text-2xl font-bold text-peach mb-1">15+</div>
+                  <div className="text-2xl font-bold text-peach mb-1">8+</div>
                   <div className="text-xs opacity-80">Languages Supported</div>
                 </div>
                 <div className="glass-card p-4 rounded-xl">
-                  <div className="text-2xl font-bold text-peach mb-1">10+</div>
+                  <div className="text-2xl font-bold text-peach mb-1">2+</div>
                   <div className="text-xs opacity-80">Years Experience</div>
                 </div>
               </div>

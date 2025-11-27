@@ -69,10 +69,10 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-lg mb-4 text-peach">Contact & Connect</h4>
             <div className="text-sm opacity-80 mb-4">
-              101 West Drive, Unit 2<br />
-              Brampton, ON L6T 2J6<br />
+              6850 Millcreek Drive<br />
+              Mississauga, ON<br />
               Email: <a href="mailto:youthandfamilyonamission@gmail.com" className="underline text-peach cursor-pointer">youthandfamilyonamission@gmail.com</a><br />
-              Phone: (555) 555-5555
+              -----: -----
             </div>
 
             <div className="flex gap-3 mb-6">

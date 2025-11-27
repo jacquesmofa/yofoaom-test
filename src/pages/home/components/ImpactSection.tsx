@@ -41,15 +41,15 @@ export default function ImpactSection() {
       <div className="glass-card p-8 rounded-2xl mb-10">
         <div className="grid md:grid-cols-3 gap-8">
           <div>
-            <div className="text-4xl font-bold text-midnight dark:text-peach mb-2">25,000+</div>
+            <div className="text-4xl font-bold text-midnight dark:text-peach mb-2">5,000+</div>
             <div className="text-sm opacity-80">Youth served through our programs, mentorship, and community initiatives</div>
           </div>
           <div>
-            <div className="text-4xl font-bold text-midnight dark:text-peach mb-2">15+</div>
+            <div className="text-4xl font-bold text-midnight dark:text-peach mb-2">2+</div>
             <div className="text-sm opacity-80">Years of dedicated service to Mississauga and surrounding communities</div>
           </div>
           <div>
-            <div className="text-4xl font-bold text-midnight dark:text-peach mb-2">50+</div>
+            <div className="text-4xl font-bold text-midnight dark:text-peach mb-2">8+</div>
             <div className="text-sm opacity-80">Community partners and strategic collaborations for greater impact</div>
           </div>
         </div>

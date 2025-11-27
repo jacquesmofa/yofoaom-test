@@ -74,7 +74,7 @@ export default function Footer() {
               6850 Millcreek Drive<br />
               Mississauga, ON<br />
               Email: <a href="mailto:youthandfamilyonamission@gmail.com" className="underline text-peach cursor-pointer">youthandfamilyonamission@gmail.com</a><br />
-              Phone: <a href="tel:+14168575901" className="underline text-peach cursor-pointer">+1 (416) 857-5901</a>
+              -----: <a href="-----" className="underline text-peach cursor-pointer">-----</a>
             </div>
 
             <div className="flex gap-2 mb-4">

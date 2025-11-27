@@ -27,7 +27,7 @@ export default function ContactSection() {
               </div>
               <div>
                 <div className="font-semibold">Call Us</div>
-                <a href="tel:+14168575901" className="text-sm opacity-80 hover:underline cursor-pointer">+1 (416) 857-5901</a>
+                <a href="tel:+14168575901" className="text-sm opacity-80 hover:underline cursor-pointer">-----</a>
               </div>
             </div>
 
@@ -71,7 +71,7 @@ export default function ContactSection() {
             </div>
             <div className="flex justify-between">
               <span className="opacity-80">Saturday</span>
-              <span className="font-semibold">10:00 AM - 4:00 PM</span>
+              <span className="font-semibold">On appointment</span>
             </div>
             <div className="flex justify-between">
               <span className="opacity-80">Sunday</span>

@@ -277,7 +277,7 @@ export default function ResourcesPage() {
 
           <div className="space-y-6">
             {[
-              { q: 'How do I register for programs?', a: 'You can register online through our website, visit our office in person, or call us at +1 (416) 857-5901. Registration forms are also available in the Resources section above.' },
+              { q: 'How do I register for programs?', a: 'You can register online through our website, visit our office in person, or call us at -----. Registration forms are also available in the Resources section above.' },
               { q: 'Are your services free?', a: 'Most of our programs are free or offered on a sliding scale based on family income. We believe financial barriers should never prevent access to our services.' },
               { q: 'What age groups do you serve?', a: 'We serve youth ages 6-24 and their families. Some programs are age-specific while others are open to all ages within this range.' },
               { q: 'Do you provide services in multiple languages?', a: 'Yes! We offer services in over 15 languages and have interpretation services available for families who need them.' },

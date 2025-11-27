@@ -9,7 +9,7 @@ export default function HeroSection() {
   useEffect(() => {
     const duration = 2000; // 2 seconds animation
     const steps = 60;
-    const youthsIncrement = 25000 / steps;
+    const youthsIncrement = 5000 / steps;
     const familiesIncrement = 800 / steps;
     const rateIncrement = 90 / steps;
 
@@ -21,7 +21,7 @@ export default function HeroSection() {
         setFamiliesSupported(Math.floor(familiesIncrement * currentStep));
         setCompletionRate(Math.floor(rateIncrement * currentStep));
       } else {
-        setYouthsServed(25000);
+        setYouthsServed(5000);
         setFamiliesSupported(800);
         setCompletionRate(90);
         clearInterval(timer);

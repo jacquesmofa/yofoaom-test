@@ -64,7 +64,7 @@ export default function ContactPage() {
               </div>
               <h3 className="text-xl font-bold mb-2 text-midnight dark:text-white">Phone</h3>
               <a href="tel:+14168575901" className="text-midnight/70 dark:text-white/70 hover:text-peach cursor-pointer">
-                +1 (416) 857-5901
+                -----
               </a>
             </div>
 
@@ -234,7 +234,7 @@ export default function ContactPage() {
                 <h3 className="font-semibold mb-2 text-midnight dark:text-white">Office Hours</h3>
                 <p className="text-midnight/70 dark:text-white/70 text-sm">
                   Monday - Friday: 9:00 AM - 5:00 PM<br />
-                  Saturday: 10:00 AM - 2:00 PM<br />
+                  Saturday: On appointment<br />
                   Sunday: Closed
                 </p>
               </div>

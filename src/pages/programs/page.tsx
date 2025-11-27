@@ -345,7 +345,7 @@ export default function ProgramsPage() {
           <h2 className="text-4xl font-display font-bold text-center mb-12">Our Impact</h2>
           <div className="grid md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-5xl font-bold text-peach mb-2">25,000+</div>
+              <div className="text-5xl font-bold text-peach mb-2">5,000+</div>
               <div className="text-lg opacity-90">Youths Served Annually</div>
             </div>
             <div className="text-center">

@@ -428,7 +428,7 @@ export default function GetSupportPage() {
                 Speak directly with our support team
               </p>
               <a href="tel:+14168575901" className="text-peach hover:underline font-semibold">
-                +1 (416) 857-5901
+                -----
               </a>
             </div>
 
