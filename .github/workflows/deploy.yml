@@ -32,12 +32,12 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           
-          # 🛑 CRITICAL FIX: Switch to supported FTPS protocol and Port 21
+          # 🛑 CRITICAL FIX: Ensure FTPS is used with Port 21
           protocol: ftps
           port: 21
           
           # Deploy the contents of the 'dist' folder
           local-dir: ./dist/ 
-          # Target is the specific website folder (Document Root)
-          server-dir: /public_html/website_7825feb0/
+          # 🛠️ FIX APPLIED: Removed the leading slash (/) to ensure the path is relative to the user's home directory (~), matching the Document Root.
+          server-dir: public_html/website_7825feb0/
           state-name: .ftp-deploy-sync-state.json
