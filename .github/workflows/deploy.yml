@@ -41,5 +41,5 @@ jobs:
           
           # CRITICAL FIX: This path is relative to your HostGator account home (~),
           # ensuring files land directly in the Document Root.
-          server-dir: ~/public_html/website_7825feb0
+          server-dir: ~/public_html/website_7825feb0/
           state-name: .ftp-deploy-sync-state.json
