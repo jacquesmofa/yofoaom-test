@@ -22,24 +22,26 @@ jobs:
         run: npm install
 
       - name: 🏗 Build Project
-        # Ensure 'npm run build' generates files into the 'dist' folder
         run: npm run build 
         
-      - name: 📂 Deploy to HostGator via FTPS
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      - name: 📂 Deploy to HostGator via FTPS (NEW ACTION)
+        # We are swapping the action to one known for better path handling
+        uses: ncpa-deploy/ftp-action@v2
         with:
-          server: ${{ secrets.FTP_SERVER }}
+          host: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           
-          # Use FTPS (secure) on port 21, as required by HostGator
-          protocol: ftps
+          # Use FTPS (secure) on port 21
           port: 21
+          secure: true
           
           # Deploy the contents of the local 'dist' folder
-          local-dir: ./dist/ 
+          source: ./dist/ 
           
-          # CRITICAL FIX: This path is relative to your HostGator account home (~),
-          # ensuring files land directly in the Document Root.
-          server-dir: ~/public_html/website_7825feb0/
-          state-name: .ftp-deploy-sync-state.json
+          # CRITICAL: This is the verified Document Root path. 
+          # The new action should interpret this path correctly without nesting.
+          target: public_html/website_7825feb0/
+          
+          # Ensure all files are included and unnecessary files are deleted
+          args: --delete --skip-cleanup
