@@ -24,24 +24,25 @@ jobs:
       - name: 🏗 Build Project
         run: npm run build 
         
-      - name: 📂 Deploy to HostGator via FTPS (NEW ACTION)
-        # We are swapping the action to one known for better path handling
-        uses: ncpa-deploy/ftp-action@v2
+      - name: 📂 Deploy to HostGator via FTPS (STABLE ACTION)
+        uses: actions/ftp-deploy@v2.0.0
         with:
-          host: ${{ secrets.FTP_SERVER }}
+          server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           
           # Use FTPS (secure) on port 21
+          protocol: ftps
           port: 21
-          secure: true
           
           # Deploy the contents of the local 'dist' folder
-          source: ./dist/ 
+          local-dir: ./dist/ 
           
-          # CRITICAL: This is the verified Document Root path. 
-          # The new action should interpret this path correctly without nesting.
-          target: public_html/website_7825feb0/
+          # CRITICAL FIX: We are using the ABSOLUTE path starting with /
+          # This specific action handles absolute paths on HostGator correctly,
+          # which should prevent the accidental creation of nested folders.
+          server-dir: /public_html/website_7825feb0/
           
-          # Ensure all files are included and unnecessary files are deleted
-          args: --delete --skip-cleanup
+          # Flags for clean overwrite
+          state-name: .ftp-deploy-sync-state.json
+          dry-run: false
