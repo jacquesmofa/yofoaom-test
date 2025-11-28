@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
@@ -113,9 +114,11 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Footer Bottom */}
-        <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="flex items-center gap-4">
+        {/* Footer Bottom - MODIFIED FOR FULL CENTERING */}
+        <div className="border-t border-white/10 pt-6 flex flex-col items-center gap-4"> {/* Removed md:flex-row and justify-between, added items-center */}
+          
+          <div className="flex flex-col sm:flex-row items-center gap-4 text-center">
+            {/* Logo Block */}
             <Link to="/#home" className="w-14 h-14 bg-cream rounded-full flex items-center justify-center shadow-lg cursor-pointer p-1">
               {/* Using your actual logo image */}
               <img 
@@ -124,7 +127,9 @@ export default function Footer() {
                 className="w-full h-full object-contain rounded-full"
               />
             </Link>
-            <div className="text-xs opacity-80">
+            
+            {/* Accreditation Text */}
+            <div className="text-xs opacity-80 mt-2 sm:mt-0">
               <Link to="/#home" className="hover:underline cursor-pointer">
                 <strong>Youth &amp; Families on a Mission</strong>
               </Link>
@@ -132,9 +137,10 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="text-xs opacity-80 text-center md:text-right">
+          {/* Copyright & Legal Block */}
+          <div className="text-xs opacity-80 text-center mt-4"> {/* Added margin-top for separation */}
             <div className="mb-2">© {currentYear} Youth &amp; Families on a Mission</div>
-            <div className="flex gap-3 justify-center md:justify-end">
+            <div className="flex gap-3 justify-center"> {/* Removed md:justify-end, forcing center on all screens */}
               <Link to="/resources#privacy" className="hover:underline cursor-pointer">Privacy</Link>
               <span>•</span>
               <Link to="/resources#terms" className="hover:underline cursor-pointer">Terms</Link>
