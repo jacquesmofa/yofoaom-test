@@ -18,8 +18,9 @@ jobs:
         with:
           node-version: '20' 
 
-      - name: 📦 Install dependencies
-        run: npm install
+      # ✅ CRITICAL FIX: Added --legacy-peer-deps flag to resolve the react-helmet-async conflict
+      - name: 📦 Install dependencies (with conflict resolution)
+        run: npm install --legacy-peer-deps
 
       - name: 🏗 Build Project
         run: npm run build 
@@ -38,8 +39,6 @@ jobs:
           # Deploy the contents of the local 'dist' folder
           local-dir: ./dist/ 
           
-          # 💥 FINAL ATTEMPT: We are only using the unique folder name.
-          # This is the last remaining way to stop the action from creating subfolders.
           server-dir: /
           
           state-name: .ftp-deploy-sync-state.json
