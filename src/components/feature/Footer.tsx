@@ -141,7 +141,7 @@ export default function Footer() {
           <div className="text-xs opacity-80 text-center mt-4"> {/* Added margin-top for separation */}
             <div className="mb-2">© {currentYear} Youth &amp; Families on a Mission</div>
             <div className="flex gap-3 justify-center"> {/* Removed md:justify-end, forcing center on all screens */}
-              <Link to="/resources#privacy" className="hover:underline cursor-pointer">Privacy</Link>
+              <Link to="/resources#privacy" className="hover:underline cursor-pointer">Privacy, MJ</Link>
               <span>•</span>
               <Link to="/resources#terms" className="hover:underline cursor-pointer">Terms</Link>
             </div>
