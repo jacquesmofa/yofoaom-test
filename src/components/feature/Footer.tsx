@@ -2,11 +2,12 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const LOGO_URL = 'https://i.imgur.com/sOJk3J7.png'; // 🟢 Your YAFOAM Logo
 
   return (
     <footer className="bg-midnight dark:bg-darkmode-bg text-cream border-t border-white/10 py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-8 mb-8">
+        <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-8 mb-8"> {/* Adjusted grid for slightly cleaner layout on MD screens */}
           {/* About YAFOAM */}
           <div>
             <h4 className="font-bold text-base mb-3 text-peach">About YAFOAM</h4>
@@ -77,20 +78,20 @@ export default function Footer() {
               -----: <a href="-----" className="underline text-peach cursor-pointer">-----</a>
             </div>
 
-            <div className="flex gap-2 mb-4">
-              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center bg-peach/20 hover:bg-peach rounded-full transition cursor-pointer" aria-label="LinkedIn">
+            <div className="flex gap-3 mb-4"> {/* Increased gap for cleaner social icons */}
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center bg-peach/20 hover:bg-peach text-cream hover:text-midnight rounded-full transition cursor-pointer shadow-md" aria-label="LinkedIn">
                 <i className="ri-linkedin-fill text-base"></i>
               </a>
-              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center bg-peach/20 hover:bg-peach rounded-full transition cursor-pointer" aria-label="Instagram">
+              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center bg-peach/20 hover:bg-peach text-cream hover:text-midnight rounded-full transition cursor-pointer shadow-md" aria-label="Instagram">
                 <i className="ri-instagram-fill text-base"></i>
               </a>
-              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center bg-peach/20 hover:bg-peach rounded-full transition cursor-pointer" aria-label="Facebook">
+              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center bg-peach/20 hover:bg-peach text-cream hover:text-midnight rounded-full transition cursor-pointer shadow-md" aria-label="Facebook">
                 <i className="ri-facebook-fill text-base"></i>
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center bg-peach/20 hover:bg-peach rounded-full transition cursor-pointer" aria-label="Twitter/X">
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center bg-peach/20 hover:bg-peach text-cream hover:text-midnight rounded-full transition cursor-pointer shadow-md" aria-label="Twitter/X">
                 <i className="ri-twitter-x-fill text-base"></i>
               </a>
-              <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center bg-peach/20 hover:bg-peach rounded-full transition cursor-pointer" aria-label="YouTube">
+              <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center bg-peach/20 hover:bg-peach text-cream hover:text-midnight rounded-full transition cursor-pointer shadow-md" aria-label="YouTube">
                 <i className="ri-youtube-fill text-base"></i>
               </a>
             </div>
@@ -102,9 +103,9 @@ export default function Footer() {
                   type="email"
                   placeholder="Email address"
                   required
-                  className="p-2 rounded-lg w-full mb-2 text-midnight text-xs"
+                  className="p-2 rounded-lg w-full mb-2 text-midnight text-xs focus:ring-2 focus:ring-peach focus:border-peach" // Added focus styles
                 />
-                <button className="px-3 py-1.5 rounded-lg bg-peach text-midnight font-semibold w-full hover:bg-gold transition whitespace-nowrap cursor-pointer text-xs">
+                <button className="px-3 py-1.5 rounded-lg bg-peach text-midnight font-semibold w-full hover:bg-gold transition whitespace-nowrap cursor-pointer text-xs shadow-md">
                   Subscribe
                 </button>
               </form>
@@ -115,14 +116,19 @@ export default function Footer() {
         {/* Footer Bottom */}
         <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-4">
-            <Link to="/#home" className="w-14 h-14 bg-cream rounded-full flex items-center justify-center shadow-lg cursor-pointer">
-              <span className="text-midnight font-bold text-lg">YF</span>
+            <Link to="/#home" className="w-14 h-14 bg-cream rounded-full flex items-center justify-center shadow-lg cursor-pointer p-1">
+              {/* Using your actual logo image */}
+              <img 
+                src={LOGO_URL} 
+                alt="YAFOAM Logo Icon" 
+                className="w-full h-full object-contain rounded-full"
+              />
             </Link>
             <div className="text-xs opacity-80">
               <Link to="/#home" className="hover:underline cursor-pointer">
                 <strong>Youth &amp; Families on a Mission</strong>
               </Link>
-              <div className="mt-1">Accredited by Trust Council • Charity registration <strong>123456789RR0001</strong></div>
+              <div className="mt-1">Accredited by Trust Council</div>
             </div>
           </div>
 
