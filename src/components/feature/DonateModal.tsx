@@ -207,7 +207,7 @@ export default function DonateModal({ onClose }: DonateModalProps) {
             <div className="mb-6 p-4 bg-peach/10 dark:bg-peach/5 rounded-xl text-center">
               <p className="text-sm text-gray-700 dark:text-cream/90">
                 <strong className="text-midnight dark:text-peach">
-                  Your donation will support youths and families in our community and beyound.
+                  Your donation will support youths and families in our community and beyond.
                 </strong>
                 <br />
                 We will follow up via email to finalize the donation process.
