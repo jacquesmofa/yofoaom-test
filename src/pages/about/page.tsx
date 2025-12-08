@@ -314,10 +314,10 @@ export default function AboutPage() {
 
           <div className="grid md:grid-cols-4 gap-8">
             {[
-              { name: 'Dr. Amara Johnson', role: 'Executive Director', image: 'professional Black woman executive director in business attire smiling confidently in modern office' },
-              { name: 'Marcus Williams', role: 'Program Director', image: 'professional Black man program director in casual business attire with warm smile in community center' },
-              { name: 'Fatima Hassan', role: 'Community Outreach Lead', image: 'professional woman of color community outreach coordinator with friendly expression in outdoor setting' },
-              { name: 'James Chen', role: 'Youth Services Manager', image: 'professional Asian man youth services manager with approachable demeanor in educational environment' }
+              { name: 'ED ---', role: 'Executive Director', image: 'professional Black woman executive director in business attire smiling confidently in modern office' },
+              { name: 'PD ---', role: 'Program Director', image: 'professional Black man program director in casual business attire with warm smile in community center' },
+              { name: 'COL----', role: 'Community Outreach Lead', image: 'professional woman of color community outreach coordinator with friendly expression in outdoor setting' },
+              { name: 'YSM----', role: 'Youth Services Manager', image: 'professional Asian man youth services manager with approachable demeanor in educational environment' }
             ].map((member, index) => (
               <div key={index} className="text-center">
                 <div className="relative w-48 h-48 mx-auto mb-4 rounded-full overflow-hidden shadow-lux">
