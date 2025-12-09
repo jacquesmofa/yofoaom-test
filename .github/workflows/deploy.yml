@@ -41,8 +41,7 @@ jobs:
           # Deploy the contents of the local 'dist' folder
           local-dir: ./dist/
           
-          # FIX 3: Using the confirmed absolute path to prevent subfolder creation
+          # CRITICAL FIX: Reverting to the full, confirmed Home Directory path to solve 553 error
           server-dir: /
           
-          # NOTE: Removed 'delete-remote-files' as the action rejected the key.
           state-name: .ftp-deploy-sync-state.json
