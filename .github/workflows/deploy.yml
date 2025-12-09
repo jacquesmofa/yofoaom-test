@@ -19,7 +19,8 @@ jobs:
           node-version: '20' 
 
       - name: 📦 Install dependencies
-        run: npm install
+        # 💥 CRITICAL FIX: Added --force flag to ignore React 19 dependency conflict (ERESOLVE)
+        run: npm install --force
 
       # YAFOAM builds to 'dist' based on your vite.config.ts
       - name: 🏗 Build Project
@@ -29,17 +30,19 @@ jobs:
       - name: 📂 Restore YAFOAM to Root Domain via SFTP
         uses: appleboy/scp-action@v0.1.7
         with:
-          # Secrets placeholder for host, username, and key
+          # Secrets placeholder for host and username
           host: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          # 💥 CRITICAL FIX: Changed from 'key' to 'password' since you are using FTP credentials
+          password: ${{ secrets.FTP_PASSWORD }}
           port: 22 
           
           # Source is the local YAFOAM build directory
           source: "./dist/*"
           
-          # CRITICAL: Deploying to the YAFOAM root domain (/public_html/)
-          target: "/public_html/"
+          # CRITICAL FIX: Deploying to the YAFOAM root domain (public_html/)
+          # Using the full absolute Home Directory path provided by you.
+          target: "/home3/irineashu/public_html/website_7825feb0"
           
           # Force a clean overwrite to remove the bad JRFANS files and replace them
           rm: true
