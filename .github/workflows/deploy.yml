@@ -1,4 +1,4 @@
-name: Deploy React App to HostGator
+name: Deploy YAFOAM App to HostGator (SSH/SFTP)
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   web-deploy:
-    name: Deploy
+    name: Restore YAFOAM Site
     runs-on: ubuntu-latest
     steps:
       - name: 🚚 Get latest code
@@ -18,27 +18,31 @@ jobs:
         with:
           node-version: '20' 
 
-      # ✅ CRITICAL FIX: Added --legacy-peer-deps flag to resolve the react-helmet-async conflict
-      - name: 📦 Install dependencies (with conflict resolution)
-        run: npm install --legacy-peer-deps
+      - name: 📦 Install dependencies
+        run: npm install
 
+      # YAFOAM builds to 'dist' based on your vite.config.ts
       - name: 🏗 Build Project
         run: npm run build 
         
-      - name: 📂 Deploy to HostGator via FTPS
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      # 💥 FINAL CI ATTEMPT: Using SSH Key to bypass firewall.
+      - name: 📂 Restore YAFOAM to Root Domain via SFTP
+        uses: appleboy/scp-action@v0.1.7
         with:
-          server: ${{ secrets.FTP_SERVER }}
+          # Secrets placeholder for host, username, and key
+          host: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22 
           
-          # Use FTPS (secure) on port 21
-          protocol: ftps
-          port: 21
+          # Source is the local YAFOAM build directory
+          source: "./dist/*"
           
-          # Deploy the contents of the local 'dist' folder
-          local-dir: ./dist/ 
+          # CRITICAL: Deploying to the YAFOAM root domain (/public_html/)
+          target: "/public_html/"
           
-          server-dir: /
-          
-          state-name: .ftp-deploy-sync-state.json
+          # Force a clean overwrite to remove the bad JRFANS files and replace them
+          rm: true
+          # Enable aggressive compression and insecure cipher to maximize connection chance
+          use_insecure_cipher: true
+          debug: true
