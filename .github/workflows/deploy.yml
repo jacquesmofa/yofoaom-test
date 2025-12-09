@@ -42,7 +42,7 @@ jobs:
           local-dir: ./dist/
           
           # FIX 3: Using the confirmed absolute path to prevent subfolder creation
-          server-dir: /home3/irineashu/public_html/website_7825feb0/
+          server-dir: /
           
           # NOTE: Removed 'delete-remote-files' as the action rejected the key.
           state-name: .ftp-deploy-sync-state.json
