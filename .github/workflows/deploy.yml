@@ -42,6 +42,6 @@ jobs:
           local-dir: ./dist/
           
           # CRITICAL FIX: Reverting to the full, confirmed Home Directory path to solve 553 error
-          server-dir: /
+          server-dir: /home3/irineashu/public_html/website_7825feb0/
           
           state-name: .ftp-deploy-sync-state.json
