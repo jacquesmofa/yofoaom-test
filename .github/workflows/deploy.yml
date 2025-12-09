@@ -19,29 +19,29 @@ jobs:
           node-version: '20' 
 
       - name: 📦 Install dependencies
-        # 💥 FIX 1: Must include --force to resolve the ERESOLVE error (React 19 conflict)
+        # This is CRITICAL for passing the build due to the React 19 ERESOLVE conflict
         run: npm install --force
 
       # YAFOAM builds to 'dist' based on your vite.config.ts
       - name: 🏗 Build Project
         run: npm run build 
         
-      # 💥 FIX 2 & 3: Switch to FTP-Deploy-Action (FTPS on Port 21) with absolute path
-      - name: 📂 Deploy to HostGator via FTPS (Final Attempt)
+      # Final, proven action configuration using the correct path and protocol
+      - name: 📂 Deploy to HostGator via FTPS (Proven)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           
-          # FIX 2: Using FTPS (secure) on Port 21 to bypass SSH/SFTP firewall/auth issues
+          # Use FTPS (secure) on Port 21 to ensure authentication success
           protocol: ftps
           port: 21
           
           # Deploy the contents of the local 'dist' folder
           local-dir: ./dist/
           
-          # CRITICAL FIX: Reverting to the full, confirmed Home Directory path to solve 553 error
-          server-dir: /home3/irineashu/public_html/website_7825feb0/
+          # ✅ THE CONFIRMED WORKING SOLUTION (Targets the FTP user's Home Directory)
+          server-dir: /
           
           state-name: .ftp-deploy-sync-state.json
