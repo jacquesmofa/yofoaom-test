@@ -1,0 +1,36 @@
+{
+  "_help": "Photos for the Food Pantry section on the home page (Cloudinary links). The first one is shown large.",
+  "photos": [
+    "https://res.cloudinary.com/hxhakwbe/image/upload/v1794428480/WhatsApp_Image_2026-11-08_at_18.45.56_7_gp9bdg.jpg",
+    "https://res.cloudinary.com/hxhakwbe/image/upload/v1794428488/WhatsApp_Image_2026-11-08_at_18.45.58_2_cbv9y8.jpg",
+    "https://res.cloudinary.com/hxhakwbe/image/upload/v1794428475/WhatsApp_Image_2026-11-08_at_18.45.56_2_g8b9zk.jpg",
+    "https://res.cloudinary.com/hxhakwbe/image/upload/v1794428487/WhatsApp_Image_2026-11-08_at_18.45.58_1_izdhi6.jpg",
+    "https://res.cloudinary.com/hxhakwbe/image/upload/v1794428478/WhatsApp_Image_2026-11-08_at_18.45.56_5_wv646u.jpg",
+    "https://res.cloudinary.com/hxhakwbe/image/upload/v1794428476/WhatsApp_Image_2026-11-08_at_18.45.56_3_iu2wlo.jpg",
+    "https://res.cloudinary.com/hxhakwbe/image/upload/v1794428474/WhatsApp_Image_2026-11-08_at_18.45.55_isiqm7.jpg",
+    "https://res.cloudinary.com/hxhakwbe/image/upload/v1794428507/WhatsApp_Image_2026-11-08_at_18.45.56_8_gqxmm5.jpg",
+    "https://res.cloudinary.com/hxhakwbe/image/upload/v1794428477/WhatsApp_Image_2026-11-08_at_18.45.56_4_zzhzk3.jpg",
+    "https://res.cloudinary.com/hxhakwbe/image/upload/v1794428504/WhatsApp_Image_2026-11-08_at_18.46.00_yx4o4d.jpg",
+    "https://res.cloudinary.com/hxhakwbe/image/upload/v1794428475/WhatsApp_Image_2026-11-08_at_18.45.56_1_zbt3iy.jpg",
+    "https://res.cloudinary.com/hxhakwbe/image/upload/v1794428488/WhatsApp_Image_2026-11-08_at_18.45.57_xa5kmm.jpg"
+  ],
+  "allPhotos": [
+    "https://res.cloudinary.com/hxhakwbe/image/upload/v1794428507/WhatsApp_Image_2026-11-08_at_18.45.56_8_gqxmm5.jpg",
+    "https://res.cloudinary.com/hxhakwbe/image/upload/v1794428507/WhatsApp_Image_2026-11-08_at_18.45.56_zx5a03.jpg",
+    "https://res.cloudinary.com/hxhakwbe/image/upload/v1794428505/WhatsApp_Image_2026-11-08_at_18.45.59_1_o5ubxm.jpg",
+    "https://res.cloudinary.com/hxhakwbe/image/upload/v1794428504/WhatsApp_Image_2026-11-08_at_18.46.00_yx4o4d.jpg",
+    "https://res.cloudinary.com/hxhakwbe/image/upload/v1794428501/WhatsApp_Image_2026-11-08_at_18.45.59_ane7je.jpg",
+    "https://res.cloudinary.com/hxhakwbe/image/upload/v1794428488/WhatsApp_Image_2026-11-08_at_18.45.57_xa5kmm.jpg",
+    "https://res.cloudinary.com/hxhakwbe/image/upload/v1794428488/WhatsApp_Image_2026-11-08_at_18.45.58_2_cbv9y8.jpg",
+    "https://res.cloudinary.com/hxhakwbe/image/upload/v1794428488/WhatsApp_Image_2026-11-08_at_18.45.58_fmpcgw.jpg",
+    "https://res.cloudinary.com/hxhakwbe/image/upload/v1794428487/WhatsApp_Image_2026-11-08_at_18.45.58_1_izdhi6.jpg",
+    "https://res.cloudinary.com/hxhakwbe/image/upload/v1794428480/WhatsApp_Image_2026-11-08_at_18.45.56_7_gp9bdg.jpg",
+    "https://res.cloudinary.com/hxhakwbe/image/upload/v1794428479/WhatsApp_Image_2026-11-08_at_18.45.56_6_ozgdq6.jpg",
+    "https://res.cloudinary.com/hxhakwbe/image/upload/v1794428478/WhatsApp_Image_2026-11-08_at_18.45.56_5_wv646u.jpg",
+    "https://res.cloudinary.com/hxhakwbe/image/upload/v1794428477/WhatsApp_Image_2026-11-08_at_18.45.56_4_zzhzk3.jpg",
+    "https://res.cloudinary.com/hxhakwbe/image/upload/v1794428476/WhatsApp_Image_2026-11-08_at_18.45.56_3_iu2wlo.jpg",
+    "https://res.cloudinary.com/hxhakwbe/image/upload/v1794428475/WhatsApp_Image_2026-11-08_at_18.45.56_1_zbt3iy.jpg",
+    "https://res.cloudinary.com/hxhakwbe/image/upload/v1794428475/WhatsApp_Image_2026-11-08_at_18.45.56_2_g8b9zk.jpg",
+    "https://res.cloudinary.com/hxhakwbe/image/upload/v1794428474/WhatsApp_Image_2026-11-08_at_18.45.55_isiqm7.jpg"
+  ]
+}

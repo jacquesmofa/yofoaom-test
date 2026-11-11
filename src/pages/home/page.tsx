@@ -7,6 +7,7 @@ import HeroSection from './components/HeroSection';
 import MissionSection from './components/MissionSection';
 import ProgramsSection from './components/ProgramsSection';
 import ImpactSection from './components/ImpactSection';
+import FoodPantrySection from './components/FoodPantrySection';
 import TestimonialsSection from './components/TestimonialsSection';
 import DonateSection from './components/DonateSection';
 import ContactSection from './components/ContactSection';
@@ -30,6 +31,7 @@ export default function HomePage() {
         <MissionSection />
         <ProgramsSection />
         <ImpactSection />
+        <FoodPantrySection />
         <TestimonialsSection />
         <DonateSection />
         <ContactSection />

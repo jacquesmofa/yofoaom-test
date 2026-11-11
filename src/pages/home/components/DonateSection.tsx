@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function DonateSection() {
   return (
-    <section className="py-20">
+    <section id="donate" className="py-20 scroll-mt-24">
       <div className="max-w-5xl mx-auto text-center">
         <div className="glass-card rounded-3xl p-12 shadow-lux">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-midnight dark:text-peach font-playfair">
