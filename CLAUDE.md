@@ -24,6 +24,10 @@ Mississauga organisation empowering youth and families: mentorship, mental healt
 ## Deploy
 - `.github/workflows/deploy.yml`: push to `main` → build → FTP upload of `dist/` to `/` (secrets `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD`). This is a test repo: confirm where the FTP account points before pushing (the live domain is served from `/public_html/website_7825feb0`). Studio standard workflow to copy: `jacquesmofa/SANKOFA/.github/workflows/deploy.yml`.
 
+## Share previews and SEO (11 Nov 2026)
+- `src/content/seo.json`: per-page title, description and share picture (real pantry photos on Cloudinary). `SeoSync.tsx` applies it in the browser; `scripts/social-pages.mjs` (inside `npm run build`) writes one static page per address into `dist/` plus `sitemap.xml`, so Facebook, WhatsApp, LinkedIn and X show the right preview.
+- `public/.htaccess` (now in the repo, replaces the catch-all one on the server): https, clean addresses, per-page files, SPA fallback, caching. `public/robots.txt` added.
+
 ## Where things live
 - Pages: `src/pages/<page>/` (one folder per page, sections in `components/`). Routes: `src/router/`.
 - Text, images and links are mostly hard-coded inside the page components (`src/pages/<page>/components/*.tsx`).
@@ -32,6 +36,6 @@ Mississauga organisation empowering youth and families: mentorship, mental healt
 ## Known issues (found 10 Nov 2026)
 - 44 Readdy AI placeholder image URLs (`readdy.ai/api/search-image`) are still in the code. Replace them with real photos and track the rest in `PLACEHOLDERS.md`.
 - Stripe/checkout code exists: check whether it is actually connected before telling anyone that payments work.
-- The meta description claims '5,000+ youth annually, 90% completion': confirm before launch.
+- The unconfirmed '5,000+ youth annually, 90% completion' claim was removed from the meta description (11 Nov). Re-add only if the client confirms it.
 - A second, single-file prototype exists in `jacquesmofa/YOFOAM_Test` (YOFOAM.html).
 - Design overlap with other clients: Navy + gold shared with Kwetu/LDII family. Peach is the distinctive note to build on.

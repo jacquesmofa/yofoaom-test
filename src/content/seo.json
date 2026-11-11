@@ -1,0 +1,66 @@
+{
+  "_help": "Page titles, Google descriptions and share pictures (Facebook, WhatsApp, LinkedIn, X). Used in the browser by src/components/feature/SeoSync.tsx and at build time by scripts/social-pages.mjs, which writes one page per address plus sitemap.xml. Titles under 65 characters, descriptions 120-160.",
+  "site": {
+    "name": "YAFOAM - Youth & Families on a Mission",
+    "url": "https://youthandfamilyonamission.com",
+    "locale": "en_CA",
+    "image": "https://res.cloudinary.com/hxhakwbe/image/upload/c_fill,g_auto,w_1200,h_630,q_auto:good,f_jpg/v1794428480/WhatsApp_Image_2026-11-08_at_18.45.56_7_gp9bdg.jpg",
+    "imageAlt": "Families and volunteers at the YAFOAM community food pantry in Mississauga"
+  },
+  "pages": [
+    {
+      "path": "/",
+      "title": "YAFOAM - Youth & Families on a Mission | Mississauga",
+      "description": "Community-driven programs that elevate young people and stabilize families in Mississauga: mentorship, mental health, newcomer services and a food pantry."
+    },
+    {
+      "path": "/about",
+      "title": "About Us | YAFOAM - Youth & Families on a Mission",
+      "description": "YAFOAM empowers and uplifts young people and families in need, fostering a nurturing environment that grows youth potential and strengthens family bonds."
+    },
+    {
+      "path": "/programs",
+      "title": "Our Programs | YAFOAM - Youth & Families on a Mission",
+      "description": "Culturally responsive programs that empower youth, strengthen families and build resilient communities: leadership, skills, mental health and creativity."
+    },
+    {
+      "path": "/youth-services",
+      "title": "Youth Empowerment | YAFOAM",
+      "description": "Mentorship, mental health support and personalized help for young people facing challenges, building long-term resilience and pathways to success."
+    },
+    {
+      "path": "/family-services",
+      "title": "Family Services & Newcomer Support | YAFOAM",
+      "description": "Strengthening family bonds and helping newcomers settle: language support, cultural orientation, employment assistance and community connections.",
+      "image": "https://res.cloudinary.com/hxhakwbe/image/upload/c_fill,g_auto,w_1200,h_630,q_auto:good,f_jpg/v1794428488/WhatsApp_Image_2026-11-08_at_18.45.58_2_cbv9y8.jpg",
+      "imageAlt": "Fresh produce ready for families at the YAFOAM food pantry"
+    },
+    {
+      "path": "/community",
+      "title": "Community Engagement | YAFOAM",
+      "description": "YAFOAM works hand in hand with local organizations, businesses and institutions to build sustainable solutions that uplift the whole community."
+    },
+    {
+      "path": "/get-involved",
+      "title": "Get Involved: Volunteer, Donate, Partner | YAFOAM",
+      "description": "Make a difference in the lives of youth and families in your community. Volunteer, donate or partner with Youth & Families on a Mission.",
+      "image": "https://res.cloudinary.com/hxhakwbe/image/upload/c_fill,g_auto,w_1200,h_630,q_auto:good,f_jpg/v1794428478/WhatsApp_Image_2026-11-08_at_18.45.56_5_wv646u.jpg",
+      "imageAlt": "Volunteers preparing food at the YAFOAM community pantry"
+    },
+    {
+      "path": "/get-support",
+      "title": "Get Support for Your Family | YAFOAM",
+      "description": "We are here to help you and your family access the support you need, from youth and family services to newcomer help and crisis contacts."
+    },
+    {
+      "path": "/resources",
+      "title": "Resources & Success Stories | YAFOAM",
+      "description": "Helpful guides, success stories and information for youth and families in our community, celebrating achievements and memorable moments."
+    },
+    {
+      "path": "/contact",
+      "title": "Contact Us | YAFOAM - Youth & Families on a Mission",
+      "description": "Questions about our programs, getting support or getting involved? Reach out to Youth & Families on a Mission today. We are here to help."
+    }
+  ]
+}
