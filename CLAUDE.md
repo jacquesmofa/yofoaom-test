@@ -3,7 +3,7 @@
 Mississauga organisation empowering youth and families: mentorship, mental health, newcomer services.
 
 - Live domain: youthandfamilyonamission.com (found in code; confirm)
-- Host: ❓ (FTP workflow to `/`)
+- Host: HostGator; youthandfamilyonamission.com is served from `/public_html/website_7825feb0` on the cPanel account `irineashu`
 - Design and audience: see `brand-dna.md`. Placeholders: `PLACEHOLDERS.md` (create it when you find one).
 
 ## Studio rules (Jacques' web studio: apply to every task)
@@ -22,7 +22,7 @@ Mississauga organisation empowering youth and families: mentorship, mental healt
 - Routes: `/`, `/about`, `/community`, `/contact`, `/family-services`, `/get-involved`, `/get-support`, `/programs`, `/resources`, `/youth-services`.
 
 ## Deploy
-- `.github/workflows/deploy.yml`: push to `main` → build → FTP upload of `dist/` to `/` (secrets `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD`). This is a test repo: confirm where the FTP account points before pushing.
+- `.github/workflows/deploy.yml`: push to `main` → build → FTP upload of `dist/` to `/` (secrets `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD`). This is a test repo: confirm where the FTP account points before pushing (the live domain is served from `/public_html/website_7825feb0`). Studio standard workflow to copy: `jacquesmofa/SANKOFA/.github/workflows/deploy.yml`.
 
 ## Where things live
 - Pages: `src/pages/<page>/` (one folder per page, sections in `components/`). Routes: `src/router/`.
