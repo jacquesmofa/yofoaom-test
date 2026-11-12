@@ -1,6 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async'; 
 
 // Define the type for the dropdown menus
 type DropdownMenu = 'about' | 'programs' | 'involved' | 'resources';
@@ -29,6 +28,43 @@ export default function Header() {
 
   // ✅ ERROR FIXED: 'path' parameter is explicitly typed as a string
   const isActive = (path: string): boolean => location.pathname === path;
+
+  // Close the phone menu whenever the page (or section) changes, and with the Escape key.
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location.pathname, location.hash]);
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setMobileMenuOpen(false);
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [mobileMenuOpen]);
+
+  // Same pages as the desktop menu, grouped the same way.
+  const mobileGroups: { title: string; links: { to: string; label: string }[] }[] = [
+    { title: 'About', links: [
+      { to: '/about', label: 'Our Mission' },
+      { to: '/about#history', label: 'Our Story' },
+      { to: '/about#values', label: 'Vision & Core Values' },
+      { to: '/about#leadership', label: 'Leadership Team' },
+    ] },
+    { title: 'Programs', links: [
+      { to: '/programs', label: 'All Programs' },
+      { to: '/youth-services', label: 'Youth Empowerment Track' },
+      { to: '/family-services', label: 'Family Strengthening Track' },
+      { to: '/community', label: 'Community Engagement Track' },
+    ] },
+    { title: 'Get Involved', links: [
+      { to: '/get-involved', label: 'Volunteer, Partner & Donate' },
+      { to: '/get-involved#donate', label: 'Ways to Give' },
+    ] },
+    { title: 'Resources', links: [
+      { to: '/resources', label: 'Gallery' },
+      { to: '/resources#media', label: 'Success Stories' },
+      { to: '/resources#faq', label: 'Workshops & FAQ' },
+      { to: '/resources#privacy', label: 'Policies' },
+    ] },
+  ];
 
   return (
     <header className="sticky top-0 z-50 bg-cream/95 dark:bg-darkmode-bg/95 backdrop-blur-md border-b border-midnight/10 dark:border-white/10">
@@ -184,18 +220,48 @@ export default function Header() {
             <button
               onClick={toggleMobileMenu}
               className="lg:hidden w-9 h-9 flex items-center justify-center rounded-xl hover:bg-peach/50 transition cursor-pointer"
-              aria-label="Toggle menu"
+              aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-menu"
             >
               <i className={`ri-${mobileMenuOpen ? 'close' : 'menu'}-line text-xl`}></i>
             </button>
           </div>
         </div>
 
-        {/* Mobile Menu (No change, structure is fine) */}
+        {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-cream/95 dark:bg-darkmode-bg/95 p-4 border-t border-midnight/10 dark:border-white/10">
-            {/* ... Mobile links ... */}
-          </div>
+          <nav
+            id="mobile-menu"
+            aria-label="Mobile"
+            className="lg:hidden max-h-[calc(100dvh-4.5rem)] overflow-y-auto overscroll-contain border-t border-midnight/10 dark:border-white/10 pb-6 pt-2"
+          >
+            <div className="grid gap-1">
+              <Link to="/" onClick={() => setMobileMenuOpen(false)} className={`block rounded-xl px-3 py-3 text-base font-semibold text-midnight dark:text-cream hover:bg-peach/50 ${isActive('/') ? 'bg-peach/30' : ''}`}>Home</Link>
+              {mobileGroups.map((group) => (
+                <div key={group.title} className="pt-3">
+                  <p className="px-3 pb-1 text-xs font-semibold uppercase tracking-widest text-midnight/60 dark:text-cream/60">{group.title}</p>
+                  {group.links.map((link) => (
+                    <Link
+                      key={link.to + link.label}
+                      to={link.to}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={`block rounded-xl px-3 py-2.5 text-base text-midnight dark:text-cream hover:bg-peach/50 ${location.pathname + location.hash === link.to ? 'bg-peach/30 font-semibold' : ''}`}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              ))}
+              <div className="mt-3 grid gap-1 border-t border-midnight/10 pt-3 dark:border-white/10">
+                <Link to="/get-support" onClick={() => setMobileMenuOpen(false)} className={`block rounded-xl px-3 py-3 text-base font-semibold text-midnight dark:text-cream hover:bg-peach/50 ${isActive('/get-support') ? 'bg-peach/30' : ''}`}>Get Support</Link>
+                <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className={`block rounded-xl px-3 py-3 text-base text-midnight dark:text-cream hover:bg-peach/50 ${isActive('/contact') ? 'bg-peach/30' : ''}`}>Contact</Link>
+                <Link to="/get-involved#donate" onClick={() => setMobileMenuOpen(false)} className="btn-primary mt-2 justify-center text-center">
+                  Donate <i className="ri-heart-fill ml-2"></i>
+                </Link>
+              </div>
+            </div>
+          </nav>
         )}
       </div>
     </header>
