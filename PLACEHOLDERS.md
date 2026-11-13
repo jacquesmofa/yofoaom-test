@@ -8,3 +8,4 @@
 - [ ] Send more photo sets (Cloudinary CSV export per event) to add albums: youth programs, family workshops, community events.
 
 - Youth re-engagement box on the home page showed a fake phone "(555) 555-5555 Ext. 102"; it now points to youthandfamilyonamission@gmail.com. Send the coordinator's real number to put a phone back.
+- Home page testimonials (Maria S., the Al-Hassan Family, "Anonymous Youth") were taken off the live site: no sign they came from real participants. The component is kept in `src/pages/home/components/TestimonialsSection.tsx`; add it back with real, permitted quotes.
