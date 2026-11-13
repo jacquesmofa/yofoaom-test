@@ -58,7 +58,7 @@ export default function YouthEmpowermentSection() {
           <div className="bg-midnight/10 dark:bg-midnight/40 p-4 rounded-xl mt-6">
             <p className="font-semibold text-midnight dark:text-peach">Need Immediate Help?</p>
             <p className="text-sm opacity-80 mt-1">
-              Contact our dedicated Re-Engagement Coordinator for confidential intake and assessment. <strong>(555) 555-5555 Ext. 102</strong>
+              Contact our Re-Engagement Coordinator for confidential intake and assessment: <a href="mailto:youthandfamilyonamission@gmail.com?subject=Youth%20re-engagement%20intake" className="font-semibold underline">youthandfamilyonamission@gmail.com</a>
             </p>
           </div>
         </div>

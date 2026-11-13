@@ -6,3 +6,5 @@
 ## Gallery (13 Nov 2026)
 - [x] The old gallery (12 invented scenes with a broken image address, so every tile showed the same stock picture) was replaced by a real Gallery page at /gallery: albums in `src/content/gallery.json`, first album = Community Food Pantry (17 real photos).
 - [ ] Send more photo sets (Cloudinary CSV export per event) to add albums: youth programs, family workshops, community events.
+
+- Youth re-engagement box on the home page showed a fake phone "(555) 555-5555 Ext. 102"; it now points to youthandfamilyonamission@gmail.com. Send the coordinator's real number to put a phone back.
