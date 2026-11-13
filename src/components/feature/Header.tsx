@@ -59,7 +59,7 @@ export default function Header() {
       { to: '/get-involved#donate', label: 'Ways to Give' },
     ] },
     { title: 'Resources', links: [
-      { to: '/resources', label: 'Gallery' },
+      { to: '/gallery', label: 'Gallery' },
       { to: '/resources#media', label: 'Success Stories' },
       { to: '/resources#faq', label: 'Workshops & FAQ' },
       { to: '/resources#privacy', label: 'Policies' },
@@ -185,7 +185,7 @@ export default function Header() {
               </button>
               {activeDropdown === 'resources' && (
                 <div className="absolute top-full left-0 mt-2 w-56 bg-cream dark:bg-darkmode-bg border border-midnight/10 dark:border-white/10 rounded-xl shadow-lg overflow-hidden z-50">
-                  <Link to="/resources" className="block px-4 py-2.5 hover:bg-peach/50 transition cursor-pointer text-sm">Gallery</Link>
+                  <Link to="/gallery" className="block px-4 py-2.5 hover:bg-peach/50 transition cursor-pointer text-sm">Gallery</Link>
                   <Link to="/resources#media" className="block px-4 py-2.5 hover:bg-peach/50 transition cursor-pointer text-sm">Success Stories</Link>
                   <Link to="/resources#faq" className="block px-4 py-2.5 hover:bg-peach/50 transition cursor-pointer text-sm">Workshops</Link>
                   <Link to="/resources#privacy" className="block px-4 py-2.5 hover:bg-peach/50 transition cursor-pointer text-sm">Policies</Link>

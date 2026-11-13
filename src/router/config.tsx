@@ -11,6 +11,7 @@ const CommunityPage = lazy(() => import('../pages/community/page'));
 const GetInvolvedPage = lazy(() => import('../pages/get-involved/page'));
 const ResourcesPage = lazy(() => import('../pages/resources/page'));
 const ContactPage = lazy(() => import('../pages/contact/page'));
+const GalleryPage = lazy(() => import('../pages/gallery/page'));
 const GetSupportPage = lazy(() => import('../pages/get-support/page'));
 const NotFound = lazy(() => import('../pages/NotFound'));
 
@@ -50,6 +51,10 @@ const routes: RouteObject[] = [
   {
     path: '/resources',
     element: <ResourcesPage />,
+  },
+  {
+    path: '/gallery',
+    element: <GalleryPage />,
   },
   {
     path: '/contact',

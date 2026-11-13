@@ -1,28 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Layout from '../../components/base/Layout';
 import { Link } from 'react-router-dom';
+import { GalleryPreview } from '../../components/feature/PhotoGallery';
 
 export default function ResourcesPage() {
-  const [activeTab, setActiveTab] = useState('gallery');
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const galleryImages = [
-    { category: 'Youth Success Stories', image: 'Black youth graduating from leadership program with certificate showing pride and achievement', title: 'Leadership Graduate' },
-    { category: 'Youth Success Stories', image: 'young person presenting at community event showing confidence and public speaking skills', title: 'Youth Speaker' },
-    { category: 'Youth Success Stories', image: 'teenager receiving mentorship award showing accomplishment and gratitude', title: 'Mentorship Award' },
-    { category: 'Family Strengthening', image: 'diverse family participating in counseling session showing communication and healing', title: 'Family Counseling' },
-    { category: 'Family Strengthening', image: 'parents attending parenting workshop taking notes and engaging', title: 'Parent Workshop' },
-    { category: 'Family Strengthening', image: 'newcomer family celebrating successful settlement with community support', title: 'Newcomer Success' },
-    { category: 'Community Outreach', image: 'volunteers serving food at community event showing service and compassion', title: 'Community BBQ' },
-    { category: 'Community Outreach', image: 'diverse community members at cultural festival celebrating diversity', title: 'Cultural Festival' },
-    { category: 'Community Outreach', image: 'youth and adults working together on community garden project', title: 'Garden Project' },
-    { category: 'Workshops', image: 'participants in digital media workshop learning technology skills', title: 'Digital Media Lab' },
-    { category: 'Workshops', image: 'cooking class with families learning healthy nutrition together', title: 'Nutrition Workshop' },
-    { category: 'Workshops', image: 'youth in entrepreneurship workshop developing business skills', title: 'Business Skills' }
-  ];
+
 
   return (
     <Layout>
@@ -46,96 +33,17 @@ export default function ResourcesPage() {
         </div>
       </section>
 
-      {/* Gallery Section with Tabs */}
+      {/* Gallery preview: real photos, full gallery on /gallery */}
       <section id="gallery" className="py-20 bg-cream dark:bg-darkmode-bg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-display font-bold text-center text-midnight dark:text-peach mb-4">
-            Gallery & Success Stories
-          </h2>
-          <p className="text-center text-gray-600 dark:text-cream/80 mb-12">
-            Celebrating our community's achievements and memorable moments
-          </p>
-
-          {/* Tab Navigation */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            <button
-              onClick={() => setActiveTab('gallery')}
-              className={`px-6 py-3 rounded-xl font-semibold transition cursor-pointer whitespace-nowrap ${
-                activeTab === 'gallery' 
-                  ? 'bg-peach text-midnight' 
-                  : 'bg-white dark:bg-darkmode-card text-gray-700 dark:text-cream/90 hover:bg-peach/20'
-              }`}
-            >
-              All Gallery
-            </button>
-            <button
-              onClick={() => setActiveTab('youth')}
-              className={`px-6 py-3 rounded-xl font-semibold transition cursor-pointer whitespace-nowrap ${
-                activeTab === 'youth' 
-                  ? 'bg-peach text-midnight' 
-                  : 'bg-white dark:bg-darkmode-card text-gray-700 dark:text-cream/90 hover:bg-peach/20'
-              }`}
-            >
-              Youth Success Stories
-            </button>
-            <button
-              onClick={() => setActiveTab('family')}
-              className={`px-6 py-3 rounded-xl font-semibold transition cursor-pointer whitespace-nowrap ${
-                activeTab === 'family' 
-                  ? 'bg-peach text-midnight' 
-                  : 'bg-white dark:bg-darkmode-card text-gray-700 dark:text-cream/90 hover:bg-peach/20'
-              }`}
-            >
-              Family Strengthening
-            </button>
-            <button
-              onClick={() => setActiveTab('community')}
-              className={`px-6 py-3 rounded-xl font-semibold transition cursor-pointer whitespace-nowrap ${
-                activeTab === 'community' 
-                  ? 'bg-peach text-midnight' 
-                  : 'bg-white dark:bg-darkmode-card text-gray-700 dark:text-cream/90 hover:bg-peach/20'
-              }`}
-            >
-              Community Events
-            </button>
-            <button
-              onClick={() => setActiveTab('workshops')}
-              className={`px-6 py-3 rounded-xl font-semibold transition cursor-pointer whitespace-nowrap ${
-                activeTab === 'workshops' 
-                  ? 'bg-peach text-midnight' 
-                  : 'bg-white dark:bg-darkmode-card text-gray-700 dark:text-cream/90 hover:bg-peach/20'
-              }`}
-            >
-              Workshops
-            </button>
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="flex flex-wrap items-end justify-between gap-4 mb-10">
+            <div>
+              <h2 className="text-4xl font-display font-bold text-midnight dark:text-cream">Gallery</h2>
+              <p className="mt-2 text-lg text-midnight/75 dark:text-cream/75">Moments from our community food pantry and events.</p>
+            </div>
+            <Link to="/gallery" className="btn-primary">See the full gallery</Link>
           </div>
-
-          {/* Gallery Grid */}
-          <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {galleryImages
-              .filter(item => 
-                activeTab === 'gallery' || 
-                (activeTab === 'youth' && item.category === 'Youth Success Stories') ||
-                (activeTab === 'family' && item.category === 'Family Strengthening') ||
-                (activeTab === 'community' && item.category === 'Community Outreach') ||
-                (activeTab === 'workshops' && item.category === 'Workshops')
-              )
-              .map((item, index) => (
-                <div key={index} className="relative h-64 rounded-xl overflow-hidden shadow-lux hover:shadow-xl transition cursor-pointer group">
-                  <img 
-                    src={`https://readdy.ai/api/search-image?query=$%7BencodeURIComponent%28item.image%29%7D&width=500&height=400&seq=gallery-${index}&orientation=landscape`}
-                    alt={item.title}
-                    className="w-full h-full object-cover object-top group-hover:scale-110 transition duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-midnight/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
-                    <div>
-                      <p className="text-xs text-peach font-semibold mb-1">{item.category}</p>
-                      <h3 className="text-white font-bold">{item.title}</h3>
-                    </div>
-                  </div>
-                </div>
-              ))}
-          </div>
+          <GalleryPreview count={7} />
         </div>
       </section>
 

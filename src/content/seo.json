@@ -53,6 +53,13 @@
       "description": "We are here to help you and your family access the support you need, from youth and family services to newcomer help and crisis contacts."
     },
     {
+      "path": "/gallery",
+      "title": "Gallery: Moments from Our Community | YAFOAM",
+      "description": "Real photos from YAFOAM's community food pantry and events in Mississauga: families, volunteers and fresh food for neighbours in need.",
+      "image": "https://res.cloudinary.com/hxhakwbe/image/upload/c_fill,g_auto,w_1200,h_630,q_auto:good,f_jpg/v1794428480/WhatsApp_Image_2026-11-08_at_18.45.56_7_gp9bdg.jpg",
+      "imageAlt": "Families and volunteers at the YAFOAM community food pantry in Mississauga"
+    },
+    {
       "path": "/resources",
       "title": "Resources & Success Stories | YAFOAM",
       "description": "Helpful guides, success stories and information for youth and families in our community, celebrating achievements and memorable moments."
