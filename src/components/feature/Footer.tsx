@@ -129,12 +129,11 @@ export default function Footer() {
               />
             </Link>
             
-            {/* Accreditation Text */}
+            {/* Organization name */}
             <div className="text-xs opacity-80 mt-2 sm:mt-0 text-center sm:text-left">
               <Link to="/#home" className="hover:underline cursor-pointer">
                 <strong>Youth &amp; Families on a Mission</strong>
               </Link>
-              <div className="mt-1">Accredited by Trust Council</div>
             </div>
           </div>
 

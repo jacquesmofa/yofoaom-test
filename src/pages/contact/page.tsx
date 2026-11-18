@@ -240,14 +240,14 @@ export default function ContactPage() {
               </div>
               <div className="rounded-xl overflow-hidden h-96">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2890.123456789!2d-79.6234567!3d43.5678901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDM0JzA0LjQiTiA3OcKwMzcnMjQuNCJX!5e0!3m2!1sen!2sca!4v1234567890123!5m2!1sen!2sca"
+                  src="https://www.google.com/maps?q=6850+Millcreek+Drive,+Mississauga,+ON&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="YAFOAM Location"
+                  title="Map: 6850 Millcreek Drive, where YAFOAM is located"
                 ></iframe>
               </div>
             </div>

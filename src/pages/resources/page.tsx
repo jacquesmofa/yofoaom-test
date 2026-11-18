@@ -299,27 +299,9 @@ export default function ResourcesPage() {
 
           <div className="mt-8 bg-white dark:bg-darkmode-card p-8 rounded-2xl shadow-lux">
             <h3 className="text-2xl font-bold text-midnight dark:text-peach mb-4">Governance &amp; Accountability</h3>
-            <p className="text-gray-700 dark:text-cream/90 mb-4 leading-relaxed">
-              YAFOAM is a registered Canadian charity (Registration #123456789RR0001) governed by a dedicated Board of Directors. We maintain the highest standards of transparency, accountability, and ethical conduct in all our operations.
+            <p className="text-gray-700 dark:text-cream/90 leading-relaxed">
+              YAFOAM is governed by a dedicated Board of Directors. We hold ourselves to high standards of transparency, accountability and ethical conduct in everything we do, and we are happy to answer questions about how we work.
             </p>
-            <div className="grid md:grid-cols-4 gap-4 mt-6">
-              <div className="text-center p-4 bg-cream dark:bg-darkmode-bg rounded-xl">
-                <div className="text-2xl font-bold text-peach mb-1">100%</div>
-                <div className="text-sm text-gray-700 dark:text-cream/90">Transparent Operations</div>
-              </div>
-              <div className="text-center p-4 bg-cream dark:bg-darkmode-bg rounded-xl">
-                <div className="text-2xl font-bold text-peach mb-1">Annual</div>
-                <div className="text-sm text-gray-700 dark:text-cream/90">Financial Audits</div>
-              </div>
-              <div className="text-center p-4 bg-cream dark:bg-darkmode-bg rounded-xl">
-                <div className="text-2xl font-bold text-peach mb-1">CRA</div>
-                <div className="text-sm text-gray-700 dark:text-cream/90">Registered Charity</div>
-              </div>
-              <div className="text-center p-4 bg-cream dark:bg-darkmode-bg rounded-xl">
-                <div className="text-2xl font-bold text-peach mb-1">Board</div>
-                <div className="text-sm text-gray-700 dark:text-cream/90">Governed</div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
