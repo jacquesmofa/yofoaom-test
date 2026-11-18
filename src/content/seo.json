@@ -5,13 +5,13 @@
     "url": "https://youthandfamilyonamission.com",
     "locale": "en_CA",
     "image": "https://res.cloudinary.com/hxhakwbe/image/upload/c_fill,g_auto,w_1200,h_630,q_auto:good,f_jpg/v1794428480/WhatsApp_Image_2026-11-08_at_18.45.56_7_gp9bdg.jpg",
-    "imageAlt": "Families and volunteers at the YAFOAM community food pantry in Mississauga"
+    "imageAlt": "Families and volunteers at the YAFOAM community food pantry"
   },
   "pages": [
     {
       "path": "/",
-      "title": "YAFOAM - Youth & Families on a Mission | Mississauga",
-      "description": "Community-driven programs that elevate young people and stabilize families in Mississauga: mentorship, mental health, newcomer services and a food pantry."
+      "title": "YAFOAM - Youth & Families on a Mission | Community Programs",
+      "description": "Community-driven programs that elevate young people and stabilize families: mentorship, mental health, newcomer services and a food pantry."
     },
     {
       "path": "/about",
@@ -55,9 +55,9 @@
     {
       "path": "/gallery",
       "title": "Gallery: Moments from Our Community | YAFOAM",
-      "description": "Real photos from YAFOAM's community food pantry and events in Mississauga: families, volunteers and fresh food for neighbours in need.",
+      "description": "Real photos from YAFOAM's community food pantry and events: families, volunteers and fresh food shared with neighbours in need.",
       "image": "https://res.cloudinary.com/hxhakwbe/image/upload/c_fill,g_auto,w_1200,h_630,q_auto:good,f_jpg/v1794428480/WhatsApp_Image_2026-11-08_at_18.45.56_7_gp9bdg.jpg",
-      "imageAlt": "Families and volunteers at the YAFOAM community food pantry in Mississauga"
+      "imageAlt": "Families and volunteers at the YAFOAM community food pantry"
     },
     {
       "path": "/resources",

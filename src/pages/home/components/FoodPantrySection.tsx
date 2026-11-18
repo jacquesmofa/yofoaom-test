@@ -11,7 +11,7 @@ const steps = [
 ];
 
 const fund = [
-  { t: 'Fresh food for growing families', d: 'Produce, protein, dairy and staples purchased to fill the gaps donations cannot.' },
+  { t: 'Fresh food for growing families', d: 'Produce, protein, dairy and staples purchased to fill the gaps in donated food.' },
   { t: 'Youth leadership through service', d: 'Training and coordination so young volunteers gain real skills, references and confidence.' },
   { t: 'Space, storage & transport', d: 'Shelving, cold storage and transport that let us accept more food and reach more homes.' },
   { t: 'Nutrition & wellbeing', d: 'Nutrition education and referrals that turn a food visit into lasting family health.' },
@@ -33,7 +33,7 @@ export default function FoodPantrySection() {
         <div className="relative grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <span className="inline-flex items-center gap-2 rounded-full border border-gold/50 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-gold">
-              <i className="ri-restaurant-2-line" aria-hidden="true" /> Community Food Pantry · For funders &amp; partners
+              <i className="ri-restaurant-2-line" aria-hidden="true" /> Community Food Pantry · For donors &amp; partners
             </span>
             <h2 id="pantry-title" className="mt-6 font-display text-4xl md:text-5xl font-bold leading-tight">
               Full plates. Strong families. <span className="text-peach italic">Brighter futures.</span>
@@ -42,8 +42,8 @@ export default function FoodPantrySection() {
               Hunger makes everything harder: school, work, health and hope. Our community food pantry puts fresh, nourishing groceries in the hands of families across Mississauga and Peel, and it is powered by the very young people we serve. Every hamper feeds a household; every shift builds a young leader.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a href="#donate" className="rounded-full bg-gold px-6 py-3 font-semibold text-midnight hover:bg-peach transition-colors whitespace-nowrap">Fund the pantry</a>
-              <a href={`mailto:${EMAIL}?subject=${encodeURIComponent('Food pantry funding package request')}`} className="rounded-full border border-cream/40 px-6 py-3 font-semibold hover:bg-cream/10 transition-colors whitespace-nowrap">Request our funding package</a>
+              <a href="#donate" className="rounded-full bg-gold px-6 py-3 font-semibold text-midnight hover:bg-peach transition-colors whitespace-nowrap">Donate to the pantry</a>
+              <a href={`mailto:${EMAIL}?subject=${encodeURIComponent('Food pantry donor package request')}`} className="rounded-full border border-cream/40 px-6 py-3 font-semibold hover:bg-cream/10 transition-colors whitespace-nowrap">Request our donor package</a>
             </div>
           </div>
           <div className="grid grid-cols-3 gap-3">
@@ -70,7 +70,7 @@ export default function FoodPantrySection() {
 
       <div className="mt-8 grid lg:grid-cols-5 gap-8">
         <div className="lg:col-span-3 rounded-[2rem] bg-white dark:bg-white/5 shadow-lux p-8 md:p-10">
-          <h3 className="font-display text-2xl md:text-3xl font-bold">What your grant makes possible</h3>
+          <h3 className="font-display text-2xl md:text-3xl font-bold">What your donation makes possible</h3>
           <div className="mt-6 grid sm:grid-cols-2 gap-6">
             {fund.map((f) => (
               <div key={f.t} className="border-l-4 border-gold pl-4">
@@ -81,7 +81,7 @@ export default function FoodPantrySection() {
           </div>
         </div>
         <div className="lg:col-span-2 rounded-[2rem] bg-peach/40 dark:bg-peach/10 p-8 md:p-10">
-          <h3 className="font-display text-2xl md:text-3xl font-bold">What funders receive</h3>
+          <h3 className="font-display text-2xl md:text-3xl font-bold">What donors receive</h3>
           <ul className="mt-6 space-y-3 list-none p-0">
             {receive.map((r) => (
               <li key={r} className="flex gap-3"><i className="ri-checkbox-circle-fill text-gold text-xl shrink-0" aria-hidden="true" />{r}</li>
